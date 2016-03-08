@@ -1,0 +1,652 @@
+﻿using System;
+using System.Collections;
+using System.ComponentModel;
+using System.Data;
+using System.Linq;
+using System.Web;
+using System.Web.Services;
+using System.Web.Services.Protocols;
+using System.Xml.Linq;
+using DAL;
+namespace DEWebService
+{
+    /// <summary>
+    /// Summary description for VendorInfoBL
+    /// </summary>
+    [WebService(Namespace = "http://tempuri.org/")]
+    [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
+    [ToolboxItem(false)]
+    // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
+    // [System.Web.Script.Services.ScriptService]
+    public class VendorInfoBL : BaseBLogic
+    {
+        public VendorInfoBL()
+        {        
+        }
+
+        public override void setQueries()
+        {            
+        }
+
+        [WebMethod]
+        public DataSet selectVendorInfo(string SCAC)
+        {
+            DataSet retval = new DataSet();
+            DataSet dsDESCACS = new DataSet("DESCACS");
+            DataSet dsVendRemit = new DataSet("VendRemit");
+            DataSet dsBillTo = new DataSet("BillTo");
+
+            string queryDESCACS = @"SELECT 
+                                        vend_norm AS vend_norm
+                                    FROM DESCACS
+                                    WHERE vend_scac = @VendLabl";
+
+            string queryVendRemit = @"SELECT
+                                        @VendLabl AS VendLabl,
+                                        LOC_ID_REMIT AS BatLocIdRemit,
+                                        AL_REMIT_1 AS AlRemit1,
+                                        AL_REMIT_2 AS AlRemit2,
+                                        AL_REMIT_3 AS AlRemit3,
+                                        AL_REMIT_4 AS AlRemit4,
+                                        AL_CITY_REMIT AS AlCityRemit,
+                                        AL_STATE_PROV_REMIT AS AlStateProvRemit,
+                                        AL_POST_CODE_REMIT AS AlPostCodeRemit,
+                                        AL_CNTRY_CODE_REMIT AS AlCntryCodeRemit
+                                    FROM VEND_REMIT
+                                    WHERE VEND_LABL=@VendLabl
+                                    ORDER BY LOC_ID_REMIT ASC";
+
+            string queryBillTo = @"SELECT
+                                        @VendLabl AS VendLabl,
+                                        LOC_ID_BLNG AS LocIdBlng,
+                                        AL_BLNG_1 AS AlBlng1,
+                                        AL_BLNG_2 AS AlBlng2,
+                                        AL_BLNG_3 AS AlBlng3,
+                                        AL_BLNG_4 AS AlBlng4,
+                                        AL_CITY_BLNG AS AlCityBlng,
+                                        AL_STATE_PROV_BLNG AS AlStateProvBlng,
+                                        AL_POST_CODE_BLNG AS AlPostCodeBlng,
+                                        AL_CNTRY_CODE_BLNG AS AlCntryCodeBlng
+                                    FROM BillTo
+                                    WHERE VEND_LABL=@VendLabl
+                                    ORDER BY LOC_ID_BLNG ASC";
+            try
+            {
+                dal.OpenDB();
+                ParameterInfo[] param = new ParameterInfo[1];
+                param[0] = new ParameterInfo("@VendLabl", SCAC);
+
+                dsDESCACS = dal.ExecuteDataSet(queryDESCACS, CommandType.Text, param);
+                dsVendRemit = dal.ExecuteDataSet(queryVendRemit, CommandType.Text, param);
+                dsBillTo = dal.ExecuteDataSet(queryBillTo, CommandType.Text, param);
+
+                dsDESCACS.Tables[0].TableName = "DESCACS";
+                dsVendRemit.Tables[0].TableName = "VendRemit";
+                dsBillTo.Tables[0].TableName = "BillTo";
+
+                retval.Tables.Add(dsDESCACS.Tables[0].Copy());
+                retval.Tables[0].AcceptChanges();
+                retval.Tables.Add(dsVendRemit.Tables[0].Copy());
+                retval.Tables[1].AcceptChanges();
+                retval.Tables.Add(dsBillTo.Tables[0].Copy());
+                retval.Tables[2].AcceptChanges();
+            }
+            catch
+            {
+                retval = null;
+            }
+            finally
+            {
+                dal.CloseDB();
+            }
+
+            return retval;
+        }
+
+        [WebMethod]
+        public bool isVendorInfoExisting(string SCAC, string vendorInfo)
+        {
+            bool retval = false;
+            object VendRemit = new object();
+
+            string queryVendRemit = @"SELECT count(*) AS isExisting
+                                      FROM VEND_REMIT
+                                      WHERE (VEND_REMIT.VEND_LABL = @VendLabl)
+                                      AND (CASE WHEN ([AL_REMIT_1]) IS NULL THEN '-' ELSE '-' + RTRIM([AL_REMIT_1]) END + 
+                                            CASE WHEN ([AL_REMIT_2]) IS NULL THEN '-' ELSE '-' + RTRIM([AL_REMIT_2]) END + 
+                                            CASE WHEN ([AL_REMIT_3]) IS NULL THEN '-' ELSE '-' + RTRIM([AL_REMIT_3]) END +
+                                            CASE WHEN ([AL_REMIT_4]) IS NULL THEN '-' ELSE '-' + RTRIM([AL_REMIT_4]) END +
+											CASE WHEN ([AL_CITY_REMIT]) IS NULL THEN '-' ELSE '-' + RTRIM([AL_CITY_REMIT]) END +
+											CASE WHEN ([AL_STATE_PROV_REMIT]) IS NULL THEN '-' ELSE '-' + RTRIM([AL_STATE_PROV_REMIT]) END +
+											CASE WHEN ([AL_POST_CODE_REMIT]) IS NULL THEN '-' ELSE '-' + RTRIM([AL_POST_CODE_REMIT]) END +
+											CASE WHEN ([AL_CNTRY_CODE_REMIT]) IS NULL THEN '-' ELSE '-' + RTRIM([AL_CNTRY_CODE_REMIT]) END) = @vendorInfo";
+            try
+            {
+                dal.OpenDB();
+                ParameterInfo[] param = new ParameterInfo[2];
+                param[0] = new ParameterInfo("@VendLabl", SCAC);
+                param[1] = new ParameterInfo("@vendorInfo", vendorInfo,SqlDbType.NVarChar,480);
+
+                VendRemit = dal.ExecuteScalar(queryVendRemit, CommandType.Text, param);
+                if (Convert.ToInt16(VendRemit.ToString()) > 0)
+                {
+                    retval = true;
+                }
+            }
+            catch
+            {
+                retval = false;
+            }
+            finally
+            {
+                dal.CloseDB();
+            }
+
+            return retval;
+        }
+
+        [WebMethod]
+        public bool isBillToExisting(string SCAC, string BillTo)
+        {
+            bool retval = false;
+            object VendRemit = new object();
+
+            string queryVendRemit = @"SELECT count(*) AS isExisting
+                                      FROM BillTo
+                                      WHERE (VEND_LABL = @VendLabl)
+                                      AND (CASE WHEN ([AL_BLNG_1]) IS NULL THEN '-' ELSE '-' + RTRIM([AL_BLNG_1]) END + 
+                                            CASE WHEN ([AL_BLNG_2]) IS NULL THEN '-' ELSE '-' + RTRIM([AL_BLNG_2]) END + 
+                                            CASE WHEN ([AL_BLNG_3]) IS NULL THEN '-' ELSE '-' + RTRIM([AL_BLNG_3]) END +
+                                            CASE WHEN ([AL_BLNG_4]) IS NULL THEN '-' ELSE '-' + RTRIM([AL_BLNG_4]) END +
+											CASE WHEN ([AL_CITY_BLNG]) IS NULL THEN '-' ELSE '-' + RTRIM([AL_CITY_BLNG]) END +
+											CASE WHEN ([AL_STATE_PROV_BLNG]) IS NULL THEN '-' ELSE '-' + RTRIM([AL_STATE_PROV_BLNG]) END +
+											CASE WHEN ([AL_POST_CODE_BLNG]) IS NULL THEN '-' ELSE '-' + RTRIM([AL_POST_CODE_BLNG]) END +
+											CASE WHEN ([AL_CNTRY_CODE_BLNG]) IS NULL THEN '-' ELSE '-' + RTRIM([AL_CNTRY_CODE_BLNG]) END) = @BillTo";
+            try
+            {
+                dal.OpenDB();
+                ParameterInfo[] param = new ParameterInfo[2];
+                param[0] = new ParameterInfo("@VendLabl", SCAC);
+                param[1] = new ParameterInfo("@BillTo", BillTo, SqlDbType.NVarChar, 480);
+
+                VendRemit = dal.ExecuteScalar(queryVendRemit, CommandType.Text, param);
+                if (Convert.ToInt16(VendRemit.ToString()) > 0)
+                {
+                    retval = true;
+                }
+            }
+            catch
+            {
+                retval = false;
+            }
+            finally
+            {
+                dal.CloseDB();
+            }
+
+            return retval;
+        }
+
+        [WebMethod]
+        public string getBatLocIdRemit(string SCAC, string vendorInfo)
+        {
+            string retval = string.Empty;
+            DataSet VendRemit = new DataSet();
+
+            string queryVendRemit = @"SELECT LOC_ID_REMIT AS BatLocIdRemit
+                                      FROM VEND_REMIT
+                                      WHERE (VEND_REMIT.VEND_LABL = @VendLabl)
+                                      AND (CASE WHEN ([AL_REMIT_1]) IS NULL THEN '-' ELSE '-' + RTRIM([AL_REMIT_1]) END + 
+                                            CASE WHEN ([AL_REMIT_2]) IS NULL THEN '-' ELSE '-' + RTRIM([AL_REMIT_2]) END + 
+                                            CASE WHEN ([AL_REMIT_3]) IS NULL THEN '-' ELSE '-' + RTRIM([AL_REMIT_3]) END +
+                                            CASE WHEN ([AL_REMIT_4]) IS NULL THEN '-' ELSE '-' + RTRIM([AL_REMIT_4]) END +
+											CASE WHEN ([AL_CITY_REMIT]) IS NULL THEN '-' ELSE '-' + RTRIM([AL_CITY_REMIT]) END +
+											CASE WHEN ([AL_STATE_PROV_REMIT]) IS NULL THEN '-' ELSE '-' + RTRIM([AL_STATE_PROV_REMIT]) END +
+											CASE WHEN ([AL_POST_CODE_REMIT]) IS NULL THEN '-' ELSE '-' + RTRIM([AL_POST_CODE_REMIT]) END +
+											CASE WHEN ([AL_CNTRY_CODE_REMIT]) IS NULL THEN '-' ELSE '-' + RTRIM([AL_CNTRY_CODE_REMIT]) END) = @vendorInfo";
+            try
+            {
+                dal.OpenDB();
+                ParameterInfo[] param = new ParameterInfo[2];
+                param[0] = new ParameterInfo("@VendLabl", SCAC);
+                param[1] = new ParameterInfo("@vendorInfo", vendorInfo, SqlDbType.NVarChar, 480);
+
+                VendRemit = dal.ExecuteDataSet(queryVendRemit, CommandType.Text, param);
+                if (VendRemit.Tables[0].Rows.Count > 0)
+                    retval = VendRemit.Tables[0].Rows[0]["BatLocIdRemit"].ToString();
+                else
+                    retval = string.Empty;
+            }
+            catch
+            {
+                retval = string.Empty;
+            }
+            finally
+            {
+                dal.CloseDB();
+            }
+
+            return retval;
+        }
+
+        [WebMethod]
+        public string getLocIdBlng(string SCAC, string BillTo)
+        {
+            string retval = string.Empty;
+            DataSet dsBillTo = new DataSet();
+
+            string queryVendRemit = @"SELECT LOC_ID_BLNG AS LocIdBlng
+                                      FROM BillTo
+                                      WHERE (VEND_LABL = @VendLabl)
+                                      AND (CASE WHEN ([AL_BLNG_1]) IS NULL THEN '-' ELSE '-' + RTRIM([AL_BLNG_1]) END + 
+                                            CASE WHEN ([AL_BLNG_2]) IS NULL THEN '-' ELSE '-' + RTRIM([AL_BLNG_2]) END + 
+                                            CASE WHEN ([AL_BLNG_3]) IS NULL THEN '-' ELSE '-' + RTRIM([AL_BLNG_3]) END +
+                                            CASE WHEN ([AL_BLNG_4]) IS NULL THEN '-' ELSE '-' + RTRIM([AL_BLNG_4]) END +
+											CASE WHEN ([AL_CITY_BLNG]) IS NULL THEN '-' ELSE '-' + RTRIM([AL_CITY_BLNG]) END +
+											CASE WHEN ([AL_STATE_PROV_BLNG]) IS NULL THEN '-' ELSE '-' + RTRIM([AL_STATE_PROV_BLNG]) END +
+											CASE WHEN ([AL_POST_CODE_BLNG]) IS NULL THEN '-' ELSE '-' + RTRIM([AL_POST_CODE_BLNG]) END +
+											CASE WHEN ([AL_CNTRY_CODE_BLNG]) IS NULL THEN '-' ELSE '-' + RTRIM([AL_CNTRY_CODE_BLNG]) END) = @billTo";
+            try
+            {
+                dal.OpenDB();
+                ParameterInfo[] param = new ParameterInfo[2];
+                param[0] = new ParameterInfo("@VendLabl", SCAC);
+                param[1] = new ParameterInfo("@billTo", BillTo, SqlDbType.NVarChar, 480);
+
+                dsBillTo = dal.ExecuteDataSet(queryVendRemit, CommandType.Text, param);
+                if (dsBillTo.Tables[0].Rows.Count > 0)
+                    retval = dsBillTo.Tables[0].Rows[0]["LocIdBlng"].ToString();
+                else
+                    retval = string.Empty;
+            }
+            catch
+            {
+                retval = string.Empty;
+            }
+            finally
+            {
+                dal.CloseDB();
+            }
+
+            return retval;
+        }
+
+        [WebMethod]
+        public int selectVendorInfoCount(string SCAC)
+        {
+            int retval = 0;
+            DataSet dsVend = new DataSet();
+
+            string queryVendCount = @"SELECT TOP 1 (LOC_ID_REMIT) AS Loc_ID_Remit
+                                        FROM VEND_REMIT
+                                        WHERE (((VEND_REMIT.VEND_LABL)=@VendLabl))
+                                        ORDER BY LOC_ID_REMIT
+                                        DESC";
+            try
+            {
+                dal.OpenDB();
+                ParameterInfo[] param = new ParameterInfo[1];
+                param[0] = new ParameterInfo("@VendLabl", SCAC);
+
+                dsVend = dal.ExecuteDataSet(queryVendCount, CommandType.Text, param);
+                if (dsVend.Tables[0].Rows.Count > 0)
+                {
+                    retval = Convert.ToInt32(dsVend.Tables[0].Rows[0]["Loc_ID_Remit"].ToString().Substring(dsVend.Tables[0].Rows[0]["Loc_ID_Remit"].ToString().Length - 5));
+                    //retval = (int)dsVend;
+                }
+                else
+                {
+                    retval = 0;
+                }
+                
+            }
+            catch
+            {
+                retval = 0;
+            }
+            finally
+            {
+                dal.CloseDB();
+            }
+
+            return retval;
+        }
+
+        [WebMethod]
+        public int selectBillToCount(string SCAC)
+        {
+            int retval = 0;
+            DataSet dsVend = new DataSet();
+
+            string queryVendCount = @"SELECT TOP 1 (LOC_ID_BLNG) AS Loc_ID_Bling
+                                        FROM BillTo
+                                        WHERE (((VEND_LABL)=@VendLabl))
+                                        ORDER BY LOC_ID_BLNG
+                                        DESC";
+            try
+            {
+                dal.OpenDB();
+                ParameterInfo[] param = new ParameterInfo[1];
+                param[0] = new ParameterInfo("@VendLabl", SCAC);
+
+                dsVend = dal.ExecuteDataSet(queryVendCount, CommandType.Text, param);
+                if (dsVend.Tables[0].Rows.Count > 0)
+                {
+                    retval = Convert.ToInt32(dsVend.Tables[0].Rows[0]["Loc_ID_Bling"].ToString().Substring(dsVend.Tables[0].Rows[0]["Loc_ID_Bling"].ToString().Length - 5));
+                    //retval = (int)dsVend;
+                }
+                else
+                {
+                    retval = 0;
+                }
+
+            }
+            catch
+            {
+                retval = 0;
+            }
+            finally
+            {
+                dal.CloseDB();
+            }
+
+            return retval;
+        }
+
+        [WebMethod]
+        public bool addVendorInfo(DataSet Row)
+        {
+            DataRow row = Row.Tables[0].Rows[0];
+            bool retval = false;
+            int affectedRows = 0;
+            string query1Part = string.Empty;
+            string query2Part = string.Empty;
+            int parameterCount = 2;
+            /*
+            insertQuery = @"INSERT INTO VEND_REMIT
+                                   (VEND_LABL
+                                   ,LOC_ID_REMIT
+                                   ,AL_REMIT_1
+                                   ,AL_REMIT_2
+                                   ,AL_REMIT_3
+                                   ,AL_REMIT_4
+                                   ,AL_CITY_REMIT
+                                   ,AL_STATE_PROV_REMIT
+                                   ,AL_POST_CODE_REMIT
+                                   ,AL_CNTRY_CODE_REMIT)
+                             VALUES
+                                   (@VendLabl
+                                   ,@LocIdRemit
+                                   ,@AlRemit1
+                                   ,@AlRemit2
+                                   ,@AlRemit3
+                                   ,@AlRemit4
+                                   ,@AlCityRemit
+                                   ,@AlStateProvRemit
+                                   ,@AlPostCodeRemit
+                                   ,@AlCntryCodeRemit)";
+
+            */
+            query1Part = "INSERT INTO VEND_REMIT\n(VEND_LABL\n,LOC_ID_REMIT";
+            query2Part = "\nVALUES\n(@VendLabl\n,@LocIdRemit";
+
+            if (row["AlRemit1"].ToString().Trim() != string.Empty)
+            {
+                query1Part = query1Part + "\n,AL_REMIT_1";
+                query2Part = query2Part + "\n,@AlRemit1";
+                parameterCount = parameterCount + 1;
+            }
+            if (row["AlRemit2"].ToString().Trim() != string.Empty)
+            {
+                query1Part = query1Part + "\n,AL_REMIT_2";
+                query2Part = query2Part + "\n,@AlRemit2";
+                parameterCount = parameterCount + 1;
+            }
+            if (row["AlRemit3"].ToString().Trim() != string.Empty)
+            {
+                query1Part = query1Part + "\n,AL_REMIT_3";
+                query2Part = query2Part + "\n,@AlRemit3";
+                parameterCount = parameterCount + 1;
+            }
+            if (row["AlRemit4"].ToString().Trim() != string.Empty)
+            {
+                query1Part = query1Part + "\n,AL_REMIT_4";
+                query2Part = query2Part + "\n,@AlRemit4";
+                parameterCount = parameterCount + 1;
+            }
+            if (row["AlCityRemit"].ToString().Trim() != string.Empty)
+            {
+                query1Part = query1Part + "\n,AL_CITY_REMIT";
+                query2Part = query2Part + "\n,@AlCityRemit";
+                parameterCount = parameterCount + 1;
+            }
+            if (row["AlStateProvRemit"].ToString().Trim() != string.Empty)
+            {
+                query1Part = query1Part + "\n,AL_STATE_PROV_REMIT";
+                query2Part = query2Part + "\n,@AlStateProvRemit";
+                parameterCount = parameterCount + 1;
+            }
+            if (row["AlPostCodeRemit"].ToString().Trim() != string.Empty)
+            {
+                query1Part = query1Part + "\n,AL_POST_CODE_REMIT";
+                query2Part = query2Part + "\n,@AlPostCodeRemit";
+                parameterCount = parameterCount + 1;
+            }
+            if (row["AlCntryCodeRemit"].ToString().Trim() != string.Empty)
+            {
+                query1Part = query1Part + "\n,AL_CNTRY_CODE_REMIT";
+                query2Part = query2Part + "\n,@AlCntryCodeRemit";
+                parameterCount = parameterCount + 1;
+            }
+            query1Part = query1Part + ")";
+            query2Part = query2Part + ")";
+            insertQuery = query1Part + query2Part;
+            ParameterInfo[] param = new ParameterInfo[parameterCount];
+            int Columns = 0;
+            foreach (DataColumn column in row.Table.Columns)
+            {
+                if (row[column.ColumnName].ToString().Trim() != string.Empty)
+                {
+                    param[Columns] = new ParameterInfo("@" + column.ColumnName, row[column.ColumnName]);
+                    Columns++;
+                }
+            }
+            //param[0] = new ParameterInfoOleDB("@VendLabl", row["VendLabl"].ToString().Trim());
+            //param[1] = new ParameterInfoOleDB("@LocIdRemit", row["LocIdRemit"].ToString().Trim());
+            //param[2] = new ParameterInfoOleDB("@AlRemit1", row["AlRemit1"].ToString().Trim());
+            //param[3] = new ParameterInfoOleDB("@AlRemit2", row["AlRemit2"].ToString().Trim());
+            //param[4] = new ParameterInfoOleDB("@AlRemit3", row["AlRemit3"].ToString().Trim());
+            //param[5] = new ParameterInfoOleDB("@AlRemit4", row["AlRemit4"].ToString().Trim());
+            //param[6] = new ParameterInfoOleDB("@AlCityRemit", row["AlCityRemit"].ToString().Trim());
+            //param[7] = new ParameterInfoOleDB("@AlStateProvRemit", row["AlStateProvRemit"].ToString().Trim());
+            //param[8] = new ParameterInfoOleDB("@AlPostCodeRemit", row["AlPostCodeRemit"].ToString().Trim());
+            //param[9] = new ParameterInfoOleDB("@AlCntryCodeRemit", row["AlCntryCodeRemit"].ToString().Trim());
+
+            
+            try
+            {
+                dal.OpenDB();
+                dal.BeginTransaction();
+                affectedRows = dal.ExecuteNonQuery(insertQuery, CommandType.Text, param);
+                dal.CommitTransaction();
+
+                retval = true;
+            }
+            catch (Exception e)
+            {
+                dal.RollBackTransaction();
+                throw e;
+            }
+            finally
+            {
+                dal.CloseDB();
+            }
+            return retval;
+        }
+
+        [WebMethod]
+        public bool addBillTo(DataSet Row)
+        {
+            DataRow row = Row.Tables[0].Rows[0];
+            bool retval = false;
+            int affectedRows = 0;
+            string query1Part = string.Empty;
+            string query2Part = string.Empty;
+            int parameterCount = 2;
+
+            query1Part = "INSERT INTO BillTo\n(VEND_LABL\n,LOC_ID_BLNG";
+            query2Part = "\nVALUES\n(@VendLabl\n,@LocIdBlng";
+
+            if (row["AlBlng1"].ToString().Trim() != string.Empty)
+            {
+                query1Part = query1Part + "\n,AL_BLNG_1";
+                query2Part = query2Part + "\n,@AlBlng1";
+                parameterCount = parameterCount + 1;
+            }
+            if (row["AlBlng2"].ToString().Trim() != string.Empty)
+            {
+                query1Part = query1Part + "\n,AL_BLNG_2";
+                query2Part = query2Part + "\n,@AlBlng2";
+                parameterCount = parameterCount + 1;
+            }
+            if (row["AlBlng3"].ToString().Trim() != string.Empty)
+            {
+                query1Part = query1Part + "\n,AL_BLNG_3";
+                query2Part = query2Part + "\n,@AlBlng3";
+                parameterCount = parameterCount + 1;
+            }
+            if (row["AlBlng4"].ToString().Trim() != string.Empty)
+            {
+                query1Part = query1Part + "\n,AL_BLNG_4";
+                query2Part = query2Part + "\n,@AlBlng4";
+                parameterCount = parameterCount + 1;
+            }
+            if (row["AlCityBlng"].ToString().Trim() != string.Empty)
+            {
+                query1Part = query1Part + "\n,AL_CITY_BLNG";
+                query2Part = query2Part + "\n,@AlCityBlng";
+                parameterCount = parameterCount + 1;
+            }
+            if (row["AlStateProvBlng"].ToString().Trim() != string.Empty)
+            {
+                query1Part = query1Part + "\n,AL_STATE_PROV_BLNG";
+                query2Part = query2Part + "\n,@AlStateProvBlng";
+                parameterCount = parameterCount + 1;
+            }
+            if (row["AlPostCodeBlng"].ToString().Trim() != string.Empty)
+            {
+                query1Part = query1Part + "\n,AL_POST_CODE_BLNG";
+                query2Part = query2Part + "\n,@AlPostCodeBlng";
+                parameterCount = parameterCount + 1;
+            }
+            if (row["AlCntryCodeBlng"].ToString().Trim() != string.Empty)
+            {
+                query1Part = query1Part + "\n,AL_CNTRY_CODE_BLNG";
+                query2Part = query2Part + "\n,@AlCntryCodeBlng";
+                parameterCount = parameterCount + 1;
+            }
+            query1Part = query1Part + ")";
+            query2Part = query2Part + ")";
+            insertQuery = query1Part + query2Part;
+            ParameterInfo[] param = new ParameterInfo[parameterCount];
+            int Columns = 0;
+            foreach (DataColumn column in row.Table.Columns)
+            {
+                if (row[column.ColumnName].ToString().Trim() != string.Empty)
+                {
+                    param[Columns] = new ParameterInfo("@" + column.ColumnName, row[column.ColumnName]);
+                    Columns++;
+                }
+            }
+
+            try
+            {
+                dal.OpenDB();
+                dal.BeginTransaction();
+                affectedRows = dal.ExecuteNonQuery(insertQuery, CommandType.Text, param);
+                dal.CommitTransaction();
+
+                retval = true;
+            }
+            catch (Exception e)
+            {
+                dal.RollBackTransaction();
+                throw e;
+            }
+            finally
+            {
+                dal.CloseDB();
+            }
+            return retval;
+        }
+
+        [WebMethod]
+        public bool isVendorInfoContentsEqual(DataTable vendorInfoContents)
+        {
+            bool retval = false;
+            DataSet ds = new DataSet();
+            DataTable VendorInfoContents = vendorInfoContents.Tables[0];
+            string queryVendorInfo = @"SELECT (CASE WHEN ([AL_REMIT_1]) IS NULL THEN '' ELSE RTRIM([AL_REMIT_1]) END + 
+                                        CASE WHEN ([AL_REMIT_2]) IS NULL THEN '' ELSE RTRIM([AL_REMIT_2]) END + 
+                                        CASE WHEN ([AL_REMIT_3]) IS NULL THEN '' ELSE RTRIM([AL_REMIT_3]) END +
+                                        CASE WHEN ([AL_REMIT_4]) IS NULL THEN '' ELSE RTRIM([AL_REMIT_4]) END +
+		                                CASE WHEN ([AL_CITY_REMIT]) IS NULL THEN '' ELSE RTRIM([AL_CITY_REMIT]) END +
+		                                CASE WHEN ([AL_STATE_PROV_REMIT]) IS NULL THEN '' ELSE RTRIM([AL_STATE_PROV_REMIT]) END +
+		                                CASE WHEN ([AL_POST_CODE_REMIT]) IS NULL THEN '' ELSE RTRIM([AL_POST_CODE_REMIT]) END +
+		                                CASE WHEN ([AL_CNTRY_CODE_REMIT]) IS NULL THEN '' ELSE RTRIM([AL_CNTRY_CODE_REMIT]) END)
+                                  FROM VEND_REMIT
+                                  WHERE VEND_REMIT.VEND_LABL = @VEND_LABL 
+                                AND LOC_ID_REMIT = @LOC_ID_REMIT";
+
+
+            ParameterInfo[] param = new ParameterInfo[2];
+            param[0] = new ParameterInfo("@VEND_LABL", VendorInfoContents.Rows[0]["VendLabl"].ToString().Trim());
+            param[1] = new ParameterInfo("@LOC_ID_REMIT", VendorInfoContents.Rows[0]["LocIdRemit"].ToString().Trim());
+            ds = dal.ExecuteDataSet(queryVendorInfo, CommandType.Text, param);
+
+            if (ds.Tables != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0 && VendorInfoContents.Rows.Count > 0)
+            {                
+                string OriginalBillTo = VendorInfoContents.Rows[0]["AlRemit1"].ToString().Trim() + VendorInfoContents.Rows[0]["AlRemit2"].ToString().Trim() + VendorInfoContents.Rows[0]["AlRemit3"].ToString().Trim() + VendorInfoContents.Rows[0]["AlRemit4"].ToString().Trim() + VendorInfoContents.Rows[0]["AlCityRemit"].ToString().Trim() + VendorInfoContents.Rows[0]["AlStateProvRemit"].ToString().Trim() + VendorInfoContents.Rows[0]["AlPostCodeRemit"].ToString().Trim() + VendorInfoContents.Rows[0]["AlCntryCodeRemit"].ToString().Trim();
+                string DatabaseBillTo = ds.Tables[0].Rows[0][0].ToString().Trim();
+                if (OriginalBillTo == DatabaseBillTo)
+                    retval = true;
+            }
+            return retval;
+        }
+
+        [WebMethod]
+        public bool isBillToContentsEqual(DataSet billToContents)
+        {
+            bool retval = false;
+            DataSet ds = new DataSet();
+            DataTable BillToContents = billToContents.Tables[0];
+            string queryBillTo = @"SELECT
+	                                    (CASE WHEN ([AL_BLNG_1]) IS NULL THEN '' ELSE RTRIM([AL_BLNG_1]) END + 
+                                        CASE WHEN ([AL_BLNG_2]) IS NULL THEN '' ELSE RTRIM([AL_BLNG_2]) END + 
+                                        CASE WHEN ([AL_BLNG_3]) IS NULL THEN '' ELSE RTRIM([AL_BLNG_3]) END +
+                                        CASE WHEN ([AL_BLNG_4]) IS NULL THEN '' ELSE RTRIM([AL_BLNG_4]) END +
+	                                    CASE WHEN ([AL_CITY_BLNG]) IS NULL THEN '' ELSE RTRIM([AL_CITY_BLNG]) END +
+	                                    CASE WHEN ([AL_STATE_PROV_BLNG]) IS NULL THEN '' ELSE RTRIM([AL_STATE_PROV_BLNG]) END +
+	                                    CASE WHEN ([AL_POST_CODE_BLNG]) IS NULL THEN '' ELSE RTRIM([AL_POST_CODE_BLNG]) END +
+	                                    CASE WHEN ([AL_CNTRY_CODE_BLNG]) IS NULL THEN '' ELSE RTRIM([AL_CNTRY_CODE_BLNG]) END)
+                                    FROM BillTo
+                                    WHERE VEND_LABL = @VEND_LABL
+                                    AND LOC_ID_BLNG = @LOC_ID_BLNG";
+
+
+            ParameterInfo[] param = new ParameterInfo[2];
+            param[0] = new ParameterInfo("@VEND_LABL", BillToContents.Rows[0]["VendLabl"].ToString().Trim());
+            param[1] = new ParameterInfo("@LOC_ID_BLNG", BillToContents.Rows[0]["LocIdBlng"].ToString().Trim());
+            ds = dal.ExecuteDataSet(queryBillTo, CommandType.Text, param);
+
+            if (ds.Tables != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0 && BillToContents.Rows.Count > 0)
+            {
+                string OriginalBillTo = BillToContents.Rows[0]["AlBlng1"].ToString().Trim() + BillToContents.Rows[0]["AlBlng2"].ToString().Trim() + BillToContents.Rows[0]["AlBlng3"].ToString().Trim() + BillToContents.Rows[0]["AlBlng4"].ToString().Trim() + BillToContents.Rows[0]["AlCityBlng"].ToString().Trim() + BillToContents.Rows[0]["AlStateProvBlng"].ToString().Trim() + BillToContents.Rows[0]["AlPostCodeBlng"].ToString().Trim() + BillToContents.Rows[0]["AlCntryCodeBlng"].ToString().Trim();
+                string DatabaseBillTo = ds.Tables[0].Rows[0][0].ToString().Trim();
+                if (OriginalBillTo == DatabaseBillTo)
+                    retval = true;
+            }
+            return retval;
+        }
+    }
+}

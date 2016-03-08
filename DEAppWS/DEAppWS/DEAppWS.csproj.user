@@ -1,0 +1,16 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PublishUrlHistory>\\fxcebas0519\DEWeb\DEApplication\|\\fxcebas0519\DEWeb\|http://fxcebas0519:8080/|\\fxcebas0519\DEWeb\App Setup\|http://fxcebas0519:8080/DEWebService/</PublishUrlHistory>
+    <InstallUrlHistory>http://fxcebas0519:8080/DEApplication/|http://fxcebas0519:8080/|http://fxcebas0519:8080/DEWebService/Default.htm/|http://fxcebas0519:8080/DEWebService/|http://localhost:8080/DEWebService/</InstallUrlHistory>
+    <SupportUrlHistory>
+    </SupportUrlHistory>
+    <UpdateUrlHistory>
+    </UpdateUrlHistory>
+    <BootstrapperUrlHistory>
+    </BootstrapperUrlHistory>
+    <ErrorReportUrlHistory>
+    </ErrorReportUrlHistory>
+    <FallbackCulture>en-US</FallbackCulture>
+    <VerifyUploadedFiles>true</VerifyUploadedFiles>
+  </PropertyGroup>
+</Project>

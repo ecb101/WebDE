@@ -1,0 +1,1388 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="selectBatches">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FormMode" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectBatchesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectBatchesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectKeyIdentifier">
+        <s:complexType />
+      </s:element>
+      <s:element name="selectKeyIdentifierResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectKeyIdentifierResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectDEForm">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="batCtrlNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OwnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SCAC" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectDEFormResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectDEFormResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isAllowBatchStart">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="batCtrlNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isAllowBatchStartResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="isAllowBatchStartResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isAllowEdit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="batCtrlNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="systemUserName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isAllowEditResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="isAllowEditResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="startBatch">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="batCtrlNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserInitials" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="startBatchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="startBatchResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isAllowUserEntry">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="batCtrlNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserInitials" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isAllowUserEntryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="isAllowUserEntryResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="sendForReview">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="batCtrlNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="sendForReviewResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="sendForReviewResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="batCtrlNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="status" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="updateStatusResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="saveBatchXML">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dsBatch">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="MXXDatabase" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FormMode" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="saveBatchXMLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="saveBatchXMLResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectBatchXML">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MXXDatabase" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FormMode" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectBatchXMLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectBatchXMLResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectBatchEphesoftXML">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MXXDatabase" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectBatchEphesoftXMLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectBatchEphesoftXMLResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="saveShipperConsigneeInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fb">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="saveShipperConsigneeInfoResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="selectAlphaNumericKey">
+        <s:complexType />
+      </s:element>
+      <s:element name="selectAlphaNumericKeyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectAlphaNumericKeyResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectCustRef">
+        <s:complexType />
+      </s:element>
+      <s:element name="selectCustRefResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectCustRefResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="auditTrailBatch">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BatCtrlNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="descriptionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="systemUserName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="auditTrailBatchResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="isAllowQA">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="batCtrlNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isAllowQAResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="isAllowQAResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isAllowUserQA">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="batCtrlNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserInitials" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isAllowUserQAResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="isAllowUserQAResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isAllowQAEdit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="batCtrlNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="systemUserName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isAllowQAEditResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="isAllowQAEditResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="startReview">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="batCtrlNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserInitials" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="startReviewResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="startReviewResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectQAConfig">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Owner_Key" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Vend_SCAC" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="batCtrlNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectQAConfigResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectQAConfigResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="completeReview">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="batCtrlNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OwnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OwnerCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="invoiceCount" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="fbCount" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="fbLineCount" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="isMultiCurrency" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="isFullQA" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserInitials" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="completeReviewResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="completeReviewResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="graphDiffQAXML">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MXXDatabase" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MXXOwnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MXXSCAC" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="siteID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="graphDiffQAXMLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="graphDiffQAXMLResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="graphDiffTrainerXML">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MXXDatabase" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="StartDate" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="siteID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="graphDiffTrainerXMLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="graphDiffTrainerXMLResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteObject">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MXXDatabase" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteObjectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="deleteObjectResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Insert">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dt">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Update">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dt">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Delete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="primaryKeys" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="parametersValues" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DeleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectAll">
+        <s:complexType />
+      </s:element>
+      <s:element name="SelectAllResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SelectAllResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServerDate">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetServerDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetServerDateResult" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="selectBatchesSoapIn">
+    <wsdl:part name="parameters" element="tns:selectBatches" />
+  </wsdl:message>
+  <wsdl:message name="selectBatchesSoapOut">
+    <wsdl:part name="parameters" element="tns:selectBatchesResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectKeyIdentifierSoapIn">
+    <wsdl:part name="parameters" element="tns:selectKeyIdentifier" />
+  </wsdl:message>
+  <wsdl:message name="selectKeyIdentifierSoapOut">
+    <wsdl:part name="parameters" element="tns:selectKeyIdentifierResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectDEFormSoapIn">
+    <wsdl:part name="parameters" element="tns:selectDEForm" />
+  </wsdl:message>
+  <wsdl:message name="selectDEFormSoapOut">
+    <wsdl:part name="parameters" element="tns:selectDEFormResponse" />
+  </wsdl:message>
+  <wsdl:message name="isAllowBatchStartSoapIn">
+    <wsdl:part name="parameters" element="tns:isAllowBatchStart" />
+  </wsdl:message>
+  <wsdl:message name="isAllowBatchStartSoapOut">
+    <wsdl:part name="parameters" element="tns:isAllowBatchStartResponse" />
+  </wsdl:message>
+  <wsdl:message name="isAllowEditSoapIn">
+    <wsdl:part name="parameters" element="tns:isAllowEdit" />
+  </wsdl:message>
+  <wsdl:message name="isAllowEditSoapOut">
+    <wsdl:part name="parameters" element="tns:isAllowEditResponse" />
+  </wsdl:message>
+  <wsdl:message name="startBatchSoapIn">
+    <wsdl:part name="parameters" element="tns:startBatch" />
+  </wsdl:message>
+  <wsdl:message name="startBatchSoapOut">
+    <wsdl:part name="parameters" element="tns:startBatchResponse" />
+  </wsdl:message>
+  <wsdl:message name="isAllowUserEntrySoapIn">
+    <wsdl:part name="parameters" element="tns:isAllowUserEntry" />
+  </wsdl:message>
+  <wsdl:message name="isAllowUserEntrySoapOut">
+    <wsdl:part name="parameters" element="tns:isAllowUserEntryResponse" />
+  </wsdl:message>
+  <wsdl:message name="sendForReviewSoapIn">
+    <wsdl:part name="parameters" element="tns:sendForReview" />
+  </wsdl:message>
+  <wsdl:message name="sendForReviewSoapOut">
+    <wsdl:part name="parameters" element="tns:sendForReviewResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:updateStatus" />
+  </wsdl:message>
+  <wsdl:message name="updateStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:updateStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="saveBatchXMLSoapIn">
+    <wsdl:part name="parameters" element="tns:saveBatchXML" />
+  </wsdl:message>
+  <wsdl:message name="saveBatchXMLSoapOut">
+    <wsdl:part name="parameters" element="tns:saveBatchXMLResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectBatchXMLSoapIn">
+    <wsdl:part name="parameters" element="tns:selectBatchXML" />
+  </wsdl:message>
+  <wsdl:message name="selectBatchXMLSoapOut">
+    <wsdl:part name="parameters" element="tns:selectBatchXMLResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectBatchEphesoftXMLSoapIn">
+    <wsdl:part name="parameters" element="tns:selectBatchEphesoftXML" />
+  </wsdl:message>
+  <wsdl:message name="selectBatchEphesoftXMLSoapOut">
+    <wsdl:part name="parameters" element="tns:selectBatchEphesoftXMLResponse" />
+  </wsdl:message>
+  <wsdl:message name="saveShipperConsigneeInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:saveShipperConsigneeInfo" />
+  </wsdl:message>
+  <wsdl:message name="saveShipperConsigneeInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:saveShipperConsigneeInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectAlphaNumericKeySoapIn">
+    <wsdl:part name="parameters" element="tns:selectAlphaNumericKey" />
+  </wsdl:message>
+  <wsdl:message name="selectAlphaNumericKeySoapOut">
+    <wsdl:part name="parameters" element="tns:selectAlphaNumericKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectCustRefSoapIn">
+    <wsdl:part name="parameters" element="tns:selectCustRef" />
+  </wsdl:message>
+  <wsdl:message name="selectCustRefSoapOut">
+    <wsdl:part name="parameters" element="tns:selectCustRefResponse" />
+  </wsdl:message>
+  <wsdl:message name="auditTrailBatchSoapIn">
+    <wsdl:part name="parameters" element="tns:auditTrailBatch" />
+  </wsdl:message>
+  <wsdl:message name="auditTrailBatchSoapOut">
+    <wsdl:part name="parameters" element="tns:auditTrailBatchResponse" />
+  </wsdl:message>
+  <wsdl:message name="isAllowQASoapIn">
+    <wsdl:part name="parameters" element="tns:isAllowQA" />
+  </wsdl:message>
+  <wsdl:message name="isAllowQASoapOut">
+    <wsdl:part name="parameters" element="tns:isAllowQAResponse" />
+  </wsdl:message>
+  <wsdl:message name="isAllowUserQASoapIn">
+    <wsdl:part name="parameters" element="tns:isAllowUserQA" />
+  </wsdl:message>
+  <wsdl:message name="isAllowUserQASoapOut">
+    <wsdl:part name="parameters" element="tns:isAllowUserQAResponse" />
+  </wsdl:message>
+  <wsdl:message name="isAllowQAEditSoapIn">
+    <wsdl:part name="parameters" element="tns:isAllowQAEdit" />
+  </wsdl:message>
+  <wsdl:message name="isAllowQAEditSoapOut">
+    <wsdl:part name="parameters" element="tns:isAllowQAEditResponse" />
+  </wsdl:message>
+  <wsdl:message name="startReviewSoapIn">
+    <wsdl:part name="parameters" element="tns:startReview" />
+  </wsdl:message>
+  <wsdl:message name="startReviewSoapOut">
+    <wsdl:part name="parameters" element="tns:startReviewResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectQAConfigSoapIn">
+    <wsdl:part name="parameters" element="tns:selectQAConfig" />
+  </wsdl:message>
+  <wsdl:message name="selectQAConfigSoapOut">
+    <wsdl:part name="parameters" element="tns:selectQAConfigResponse" />
+  </wsdl:message>
+  <wsdl:message name="completeReviewSoapIn">
+    <wsdl:part name="parameters" element="tns:completeReview" />
+  </wsdl:message>
+  <wsdl:message name="completeReviewSoapOut">
+    <wsdl:part name="parameters" element="tns:completeReviewResponse" />
+  </wsdl:message>
+  <wsdl:message name="graphDiffQAXMLSoapIn">
+    <wsdl:part name="parameters" element="tns:graphDiffQAXML" />
+  </wsdl:message>
+  <wsdl:message name="graphDiffQAXMLSoapOut">
+    <wsdl:part name="parameters" element="tns:graphDiffQAXMLResponse" />
+  </wsdl:message>
+  <wsdl:message name="graphDiffTrainerXMLSoapIn">
+    <wsdl:part name="parameters" element="tns:graphDiffTrainerXML" />
+  </wsdl:message>
+  <wsdl:message name="graphDiffTrainerXMLSoapOut">
+    <wsdl:part name="parameters" element="tns:graphDiffTrainerXMLResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteObjectSoapIn">
+    <wsdl:part name="parameters" element="tns:deleteObject" />
+  </wsdl:message>
+  <wsdl:message name="deleteObjectSoapOut">
+    <wsdl:part name="parameters" element="tns:deleteObjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertSoapIn">
+    <wsdl:part name="parameters" element="tns:Insert" />
+  </wsdl:message>
+  <wsdl:message name="InsertSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:Update" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSoapIn">
+    <wsdl:part name="parameters" element="tns:Delete" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectAllSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectAll" />
+  </wsdl:message>
+  <wsdl:message name="SelectAllSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetServerDateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetServerDate" />
+  </wsdl:message>
+  <wsdl:message name="GetServerDateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetServerDateResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DataEntryQABLSoap">
+    <wsdl:operation name="selectBatches">
+      <wsdl:input message="tns:selectBatchesSoapIn" />
+      <wsdl:output message="tns:selectBatchesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectKeyIdentifier">
+      <wsdl:input message="tns:selectKeyIdentifierSoapIn" />
+      <wsdl:output message="tns:selectKeyIdentifierSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectDEForm">
+      <wsdl:input message="tns:selectDEFormSoapIn" />
+      <wsdl:output message="tns:selectDEFormSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="isAllowBatchStart">
+      <wsdl:input message="tns:isAllowBatchStartSoapIn" />
+      <wsdl:output message="tns:isAllowBatchStartSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="isAllowEdit">
+      <wsdl:input message="tns:isAllowEditSoapIn" />
+      <wsdl:output message="tns:isAllowEditSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="startBatch">
+      <wsdl:input message="tns:startBatchSoapIn" />
+      <wsdl:output message="tns:startBatchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="isAllowUserEntry">
+      <wsdl:input message="tns:isAllowUserEntrySoapIn" />
+      <wsdl:output message="tns:isAllowUserEntrySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="sendForReview">
+      <wsdl:input message="tns:sendForReviewSoapIn" />
+      <wsdl:output message="tns:sendForReviewSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateStatus">
+      <wsdl:input message="tns:updateStatusSoapIn" />
+      <wsdl:output message="tns:updateStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="saveBatchXML">
+      <wsdl:input message="tns:saveBatchXMLSoapIn" />
+      <wsdl:output message="tns:saveBatchXMLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectBatchXML">
+      <wsdl:input message="tns:selectBatchXMLSoapIn" />
+      <wsdl:output message="tns:selectBatchXMLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectBatchEphesoftXML">
+      <wsdl:input message="tns:selectBatchEphesoftXMLSoapIn" />
+      <wsdl:output message="tns:selectBatchEphesoftXMLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="saveShipperConsigneeInfo">
+      <wsdl:input message="tns:saveShipperConsigneeInfoSoapIn" />
+      <wsdl:output message="tns:saveShipperConsigneeInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectAlphaNumericKey">
+      <wsdl:input message="tns:selectAlphaNumericKeySoapIn" />
+      <wsdl:output message="tns:selectAlphaNumericKeySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectCustRef">
+      <wsdl:input message="tns:selectCustRefSoapIn" />
+      <wsdl:output message="tns:selectCustRefSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="auditTrailBatch">
+      <wsdl:input message="tns:auditTrailBatchSoapIn" />
+      <wsdl:output message="tns:auditTrailBatchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="isAllowQA">
+      <wsdl:input message="tns:isAllowQASoapIn" />
+      <wsdl:output message="tns:isAllowQASoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="isAllowUserQA">
+      <wsdl:input message="tns:isAllowUserQASoapIn" />
+      <wsdl:output message="tns:isAllowUserQASoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="isAllowQAEdit">
+      <wsdl:input message="tns:isAllowQAEditSoapIn" />
+      <wsdl:output message="tns:isAllowQAEditSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="startReview">
+      <wsdl:input message="tns:startReviewSoapIn" />
+      <wsdl:output message="tns:startReviewSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectQAConfig">
+      <wsdl:input message="tns:selectQAConfigSoapIn" />
+      <wsdl:output message="tns:selectQAConfigSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="completeReview">
+      <wsdl:input message="tns:completeReviewSoapIn" />
+      <wsdl:output message="tns:completeReviewSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="graphDiffQAXML">
+      <wsdl:input message="tns:graphDiffQAXMLSoapIn" />
+      <wsdl:output message="tns:graphDiffQAXMLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="graphDiffTrainerXML">
+      <wsdl:input message="tns:graphDiffTrainerXMLSoapIn" />
+      <wsdl:output message="tns:graphDiffTrainerXMLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteObject">
+      <wsdl:input message="tns:deleteObjectSoapIn" />
+      <wsdl:output message="tns:deleteObjectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Insert">
+      <wsdl:input message="tns:InsertSoapIn" />
+      <wsdl:output message="tns:InsertSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <wsdl:input message="tns:UpdateSoapIn" />
+      <wsdl:output message="tns:UpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <wsdl:input message="tns:DeleteSoapIn" />
+      <wsdl:output message="tns:DeleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectAll">
+      <wsdl:input message="tns:SelectAllSoapIn" />
+      <wsdl:output message="tns:SelectAllSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServerDate">
+      <wsdl:input message="tns:GetServerDateSoapIn" />
+      <wsdl:output message="tns:GetServerDateSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DataEntryQABLSoap" type="tns:DataEntryQABLSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="selectBatches">
+      <soap:operation soapAction="http://tempuri.org/selectBatches" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectKeyIdentifier">
+      <soap:operation soapAction="http://tempuri.org/selectKeyIdentifier" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectDEForm">
+      <soap:operation soapAction="http://tempuri.org/selectDEForm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isAllowBatchStart">
+      <soap:operation soapAction="http://tempuri.org/isAllowBatchStart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isAllowEdit">
+      <soap:operation soapAction="http://tempuri.org/isAllowEdit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="startBatch">
+      <soap:operation soapAction="http://tempuri.org/startBatch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isAllowUserEntry">
+      <soap:operation soapAction="http://tempuri.org/isAllowUserEntry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendForReview">
+      <soap:operation soapAction="http://tempuri.org/sendForReview" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateStatus">
+      <soap:operation soapAction="http://tempuri.org/updateStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveBatchXML">
+      <soap:operation soapAction="http://tempuri.org/saveBatchXML" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectBatchXML">
+      <soap:operation soapAction="http://tempuri.org/selectBatchXML" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectBatchEphesoftXML">
+      <soap:operation soapAction="http://tempuri.org/selectBatchEphesoftXML" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveShipperConsigneeInfo">
+      <soap:operation soapAction="http://tempuri.org/saveShipperConsigneeInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectAlphaNumericKey">
+      <soap:operation soapAction="http://tempuri.org/selectAlphaNumericKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectCustRef">
+      <soap:operation soapAction="http://tempuri.org/selectCustRef" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="auditTrailBatch">
+      <soap:operation soapAction="http://tempuri.org/auditTrailBatch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isAllowQA">
+      <soap:operation soapAction="http://tempuri.org/isAllowQA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isAllowUserQA">
+      <soap:operation soapAction="http://tempuri.org/isAllowUserQA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isAllowQAEdit">
+      <soap:operation soapAction="http://tempuri.org/isAllowQAEdit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="startReview">
+      <soap:operation soapAction="http://tempuri.org/startReview" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectQAConfig">
+      <soap:operation soapAction="http://tempuri.org/selectQAConfig" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="completeReview">
+      <soap:operation soapAction="http://tempuri.org/completeReview" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="graphDiffQAXML">
+      <soap:operation soapAction="http://tempuri.org/graphDiffQAXML" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="graphDiffTrainerXML">
+      <soap:operation soapAction="http://tempuri.org/graphDiffTrainerXML" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteObject">
+      <soap:operation soapAction="http://tempuri.org/deleteObject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insert">
+      <soap:operation soapAction="http://tempuri.org/Insert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap:operation soapAction="http://tempuri.org/Update" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <soap:operation soapAction="http://tempuri.org/Delete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectAll">
+      <soap:operation soapAction="http://tempuri.org/SelectAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServerDate">
+      <soap:operation soapAction="http://tempuri.org/GetServerDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DataEntryQABLSoap12" type="tns:DataEntryQABLSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="selectBatches">
+      <soap12:operation soapAction="http://tempuri.org/selectBatches" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectKeyIdentifier">
+      <soap12:operation soapAction="http://tempuri.org/selectKeyIdentifier" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectDEForm">
+      <soap12:operation soapAction="http://tempuri.org/selectDEForm" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isAllowBatchStart">
+      <soap12:operation soapAction="http://tempuri.org/isAllowBatchStart" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isAllowEdit">
+      <soap12:operation soapAction="http://tempuri.org/isAllowEdit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="startBatch">
+      <soap12:operation soapAction="http://tempuri.org/startBatch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isAllowUserEntry">
+      <soap12:operation soapAction="http://tempuri.org/isAllowUserEntry" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendForReview">
+      <soap12:operation soapAction="http://tempuri.org/sendForReview" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateStatus">
+      <soap12:operation soapAction="http://tempuri.org/updateStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveBatchXML">
+      <soap12:operation soapAction="http://tempuri.org/saveBatchXML" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectBatchXML">
+      <soap12:operation soapAction="http://tempuri.org/selectBatchXML" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectBatchEphesoftXML">
+      <soap12:operation soapAction="http://tempuri.org/selectBatchEphesoftXML" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveShipperConsigneeInfo">
+      <soap12:operation soapAction="http://tempuri.org/saveShipperConsigneeInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectAlphaNumericKey">
+      <soap12:operation soapAction="http://tempuri.org/selectAlphaNumericKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectCustRef">
+      <soap12:operation soapAction="http://tempuri.org/selectCustRef" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="auditTrailBatch">
+      <soap12:operation soapAction="http://tempuri.org/auditTrailBatch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isAllowQA">
+      <soap12:operation soapAction="http://tempuri.org/isAllowQA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isAllowUserQA">
+      <soap12:operation soapAction="http://tempuri.org/isAllowUserQA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isAllowQAEdit">
+      <soap12:operation soapAction="http://tempuri.org/isAllowQAEdit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="startReview">
+      <soap12:operation soapAction="http://tempuri.org/startReview" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectQAConfig">
+      <soap12:operation soapAction="http://tempuri.org/selectQAConfig" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="completeReview">
+      <soap12:operation soapAction="http://tempuri.org/completeReview" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="graphDiffQAXML">
+      <soap12:operation soapAction="http://tempuri.org/graphDiffQAXML" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="graphDiffTrainerXML">
+      <soap12:operation soapAction="http://tempuri.org/graphDiffTrainerXML" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteObject">
+      <soap12:operation soapAction="http://tempuri.org/deleteObject" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insert">
+      <soap12:operation soapAction="http://tempuri.org/Insert" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap12:operation soapAction="http://tempuri.org/Update" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <soap12:operation soapAction="http://tempuri.org/Delete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectAll">
+      <soap12:operation soapAction="http://tempuri.org/SelectAll" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServerDate">
+      <soap12:operation soapAction="http://tempuri.org/GetServerDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DataEntryQABL">
+    <wsdl:port name="DataEntryQABLSoap" binding="tns:DataEntryQABLSoap">
+      <soap:address location="http://fxcebas0519:8080/DEWebService/DataEntryQABL.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DataEntryQABLSoap12" binding="tns:DataEntryQABLSoap12">
+      <soap12:address location="http://fxcebas0519:8080/DEWebService/DataEntryQABL.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

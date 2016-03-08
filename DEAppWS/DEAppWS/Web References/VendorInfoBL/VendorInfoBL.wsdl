@@ -1,0 +1,753 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="selectVendorInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SCAC" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectVendorInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectVendorInfoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isVendorInfoExisting">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SCAC" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vendorInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isVendorInfoExistingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="isVendorInfoExistingResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isBillToExisting">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SCAC" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BillTo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isBillToExistingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="isBillToExistingResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getBatLocIdRemit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SCAC" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vendorInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getBatLocIdRemitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getBatLocIdRemitResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getLocIdBlng">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SCAC" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BillTo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getLocIdBlngResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getLocIdBlngResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectVendorInfoCount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SCAC" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectVendorInfoCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="selectVendorInfoCountResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectBillToCount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SCAC" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectBillToCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="selectBillToCountResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addVendorInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Row">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addVendorInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="addVendorInfoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addBillTo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Row">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addBillToResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="addBillToResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isVendorInfoContentsEqual">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vendorInfoContents">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isVendorInfoContentsEqualResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="isVendorInfoContentsEqualResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isBillToContentsEqual">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="billToContents">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isBillToContentsEqualResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="isBillToContentsEqualResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Insert">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dt">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Update">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dt">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Delete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="primaryKeys" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="parametersValues" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DeleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectAll">
+        <s:complexType />
+      </s:element>
+      <s:element name="SelectAllResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SelectAllResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServerDate">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetServerDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetServerDateResult" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="selectVendorInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:selectVendorInfo" />
+  </wsdl:message>
+  <wsdl:message name="selectVendorInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:selectVendorInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="isVendorInfoExistingSoapIn">
+    <wsdl:part name="parameters" element="tns:isVendorInfoExisting" />
+  </wsdl:message>
+  <wsdl:message name="isVendorInfoExistingSoapOut">
+    <wsdl:part name="parameters" element="tns:isVendorInfoExistingResponse" />
+  </wsdl:message>
+  <wsdl:message name="isBillToExistingSoapIn">
+    <wsdl:part name="parameters" element="tns:isBillToExisting" />
+  </wsdl:message>
+  <wsdl:message name="isBillToExistingSoapOut">
+    <wsdl:part name="parameters" element="tns:isBillToExistingResponse" />
+  </wsdl:message>
+  <wsdl:message name="getBatLocIdRemitSoapIn">
+    <wsdl:part name="parameters" element="tns:getBatLocIdRemit" />
+  </wsdl:message>
+  <wsdl:message name="getBatLocIdRemitSoapOut">
+    <wsdl:part name="parameters" element="tns:getBatLocIdRemitResponse" />
+  </wsdl:message>
+  <wsdl:message name="getLocIdBlngSoapIn">
+    <wsdl:part name="parameters" element="tns:getLocIdBlng" />
+  </wsdl:message>
+  <wsdl:message name="getLocIdBlngSoapOut">
+    <wsdl:part name="parameters" element="tns:getLocIdBlngResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectVendorInfoCountSoapIn">
+    <wsdl:part name="parameters" element="tns:selectVendorInfoCount" />
+  </wsdl:message>
+  <wsdl:message name="selectVendorInfoCountSoapOut">
+    <wsdl:part name="parameters" element="tns:selectVendorInfoCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectBillToCountSoapIn">
+    <wsdl:part name="parameters" element="tns:selectBillToCount" />
+  </wsdl:message>
+  <wsdl:message name="selectBillToCountSoapOut">
+    <wsdl:part name="parameters" element="tns:selectBillToCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="addVendorInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:addVendorInfo" />
+  </wsdl:message>
+  <wsdl:message name="addVendorInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:addVendorInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="addBillToSoapIn">
+    <wsdl:part name="parameters" element="tns:addBillTo" />
+  </wsdl:message>
+  <wsdl:message name="addBillToSoapOut">
+    <wsdl:part name="parameters" element="tns:addBillToResponse" />
+  </wsdl:message>
+  <wsdl:message name="isVendorInfoContentsEqualSoapIn">
+    <wsdl:part name="parameters" element="tns:isVendorInfoContentsEqual" />
+  </wsdl:message>
+  <wsdl:message name="isVendorInfoContentsEqualSoapOut">
+    <wsdl:part name="parameters" element="tns:isVendorInfoContentsEqualResponse" />
+  </wsdl:message>
+  <wsdl:message name="isBillToContentsEqualSoapIn">
+    <wsdl:part name="parameters" element="tns:isBillToContentsEqual" />
+  </wsdl:message>
+  <wsdl:message name="isBillToContentsEqualSoapOut">
+    <wsdl:part name="parameters" element="tns:isBillToContentsEqualResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertSoapIn">
+    <wsdl:part name="parameters" element="tns:Insert" />
+  </wsdl:message>
+  <wsdl:message name="InsertSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:Update" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSoapIn">
+    <wsdl:part name="parameters" element="tns:Delete" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectAllSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectAll" />
+  </wsdl:message>
+  <wsdl:message name="SelectAllSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetServerDateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetServerDate" />
+  </wsdl:message>
+  <wsdl:message name="GetServerDateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetServerDateResponse" />
+  </wsdl:message>
+  <wsdl:portType name="VendorInfoBLSoap">
+    <wsdl:operation name="selectVendorInfo">
+      <wsdl:input message="tns:selectVendorInfoSoapIn" />
+      <wsdl:output message="tns:selectVendorInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="isVendorInfoExisting">
+      <wsdl:input message="tns:isVendorInfoExistingSoapIn" />
+      <wsdl:output message="tns:isVendorInfoExistingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="isBillToExisting">
+      <wsdl:input message="tns:isBillToExistingSoapIn" />
+      <wsdl:output message="tns:isBillToExistingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getBatLocIdRemit">
+      <wsdl:input message="tns:getBatLocIdRemitSoapIn" />
+      <wsdl:output message="tns:getBatLocIdRemitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getLocIdBlng">
+      <wsdl:input message="tns:getLocIdBlngSoapIn" />
+      <wsdl:output message="tns:getLocIdBlngSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectVendorInfoCount">
+      <wsdl:input message="tns:selectVendorInfoCountSoapIn" />
+      <wsdl:output message="tns:selectVendorInfoCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectBillToCount">
+      <wsdl:input message="tns:selectBillToCountSoapIn" />
+      <wsdl:output message="tns:selectBillToCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="addVendorInfo">
+      <wsdl:input message="tns:addVendorInfoSoapIn" />
+      <wsdl:output message="tns:addVendorInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="addBillTo">
+      <wsdl:input message="tns:addBillToSoapIn" />
+      <wsdl:output message="tns:addBillToSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="isVendorInfoContentsEqual">
+      <wsdl:input message="tns:isVendorInfoContentsEqualSoapIn" />
+      <wsdl:output message="tns:isVendorInfoContentsEqualSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="isBillToContentsEqual">
+      <wsdl:input message="tns:isBillToContentsEqualSoapIn" />
+      <wsdl:output message="tns:isBillToContentsEqualSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Insert">
+      <wsdl:input message="tns:InsertSoapIn" />
+      <wsdl:output message="tns:InsertSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <wsdl:input message="tns:UpdateSoapIn" />
+      <wsdl:output message="tns:UpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <wsdl:input message="tns:DeleteSoapIn" />
+      <wsdl:output message="tns:DeleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectAll">
+      <wsdl:input message="tns:SelectAllSoapIn" />
+      <wsdl:output message="tns:SelectAllSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServerDate">
+      <wsdl:input message="tns:GetServerDateSoapIn" />
+      <wsdl:output message="tns:GetServerDateSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="VendorInfoBLSoap" type="tns:VendorInfoBLSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="selectVendorInfo">
+      <soap:operation soapAction="http://tempuri.org/selectVendorInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isVendorInfoExisting">
+      <soap:operation soapAction="http://tempuri.org/isVendorInfoExisting" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isBillToExisting">
+      <soap:operation soapAction="http://tempuri.org/isBillToExisting" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBatLocIdRemit">
+      <soap:operation soapAction="http://tempuri.org/getBatLocIdRemit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLocIdBlng">
+      <soap:operation soapAction="http://tempuri.org/getLocIdBlng" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectVendorInfoCount">
+      <soap:operation soapAction="http://tempuri.org/selectVendorInfoCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectBillToCount">
+      <soap:operation soapAction="http://tempuri.org/selectBillToCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addVendorInfo">
+      <soap:operation soapAction="http://tempuri.org/addVendorInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addBillTo">
+      <soap:operation soapAction="http://tempuri.org/addBillTo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isVendorInfoContentsEqual">
+      <soap:operation soapAction="http://tempuri.org/isVendorInfoContentsEqual" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isBillToContentsEqual">
+      <soap:operation soapAction="http://tempuri.org/isBillToContentsEqual" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insert">
+      <soap:operation soapAction="http://tempuri.org/Insert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap:operation soapAction="http://tempuri.org/Update" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <soap:operation soapAction="http://tempuri.org/Delete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectAll">
+      <soap:operation soapAction="http://tempuri.org/SelectAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServerDate">
+      <soap:operation soapAction="http://tempuri.org/GetServerDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="VendorInfoBLSoap12" type="tns:VendorInfoBLSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="selectVendorInfo">
+      <soap12:operation soapAction="http://tempuri.org/selectVendorInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isVendorInfoExisting">
+      <soap12:operation soapAction="http://tempuri.org/isVendorInfoExisting" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isBillToExisting">
+      <soap12:operation soapAction="http://tempuri.org/isBillToExisting" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBatLocIdRemit">
+      <soap12:operation soapAction="http://tempuri.org/getBatLocIdRemit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLocIdBlng">
+      <soap12:operation soapAction="http://tempuri.org/getLocIdBlng" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectVendorInfoCount">
+      <soap12:operation soapAction="http://tempuri.org/selectVendorInfoCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectBillToCount">
+      <soap12:operation soapAction="http://tempuri.org/selectBillToCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addVendorInfo">
+      <soap12:operation soapAction="http://tempuri.org/addVendorInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addBillTo">
+      <soap12:operation soapAction="http://tempuri.org/addBillTo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isVendorInfoContentsEqual">
+      <soap12:operation soapAction="http://tempuri.org/isVendorInfoContentsEqual" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isBillToContentsEqual">
+      <soap12:operation soapAction="http://tempuri.org/isBillToContentsEqual" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insert">
+      <soap12:operation soapAction="http://tempuri.org/Insert" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap12:operation soapAction="http://tempuri.org/Update" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <soap12:operation soapAction="http://tempuri.org/Delete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectAll">
+      <soap12:operation soapAction="http://tempuri.org/SelectAll" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServerDate">
+      <soap12:operation soapAction="http://tempuri.org/GetServerDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="VendorInfoBL">
+    <wsdl:port name="VendorInfoBLSoap" binding="tns:VendorInfoBLSoap">
+      <soap:address location="http://localhost:8080/DEWebService/VendorInfoBL.asmx" />
+    </wsdl:port>
+    <wsdl:port name="VendorInfoBLSoap12" binding="tns:VendorInfoBLSoap12">
+      <soap12:address location="http://localhost:8080/DEWebService/VendorInfoBL.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

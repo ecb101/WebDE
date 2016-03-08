@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="selectBatches">
+        <s:complexType />
+      </s:element>
+      <s:element name="selectBatchesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectBatchesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectClient">
+        <s:complexType />
+      </s:element>
+      <s:element name="selectClientResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectClientResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectSCAC">
+        <s:complexType />
+      </s:element>
+      <s:element name="selectSCACResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectSCACResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deactivateBatch">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="reason" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="batchNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="systemUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="systemMachineName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deactivateBatchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="deactivateBatchResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isAllowBatchStart">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="batCtrlNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isAllowBatchStartResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="isAllowBatchStartResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isAllowEdit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="batCtrlNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isAllowEditResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="isAllowEditResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="batCtrlNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="status" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="updateStatusResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateBatch">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Bat_Ctrl_Num" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OwnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="VendBatKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FBCount" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="isProduction" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="CarrierName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ICS" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="imageFilePath" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SCAC" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="systemUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="systemMachineName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateBatchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="updateBatchResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServerDate">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetServerDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetServerDateResult" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="selectBatchesSoapIn">
+    <wsdl:part name="parameters" element="tns:selectBatches" />
+  </wsdl:message>
+  <wsdl:message name="selectBatchesSoapOut">
+    <wsdl:part name="parameters" element="tns:selectBatchesResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectClientSoapIn">
+    <wsdl:part name="parameters" element="tns:selectClient" />
+  </wsdl:message>
+  <wsdl:message name="selectClientSoapOut">
+    <wsdl:part name="parameters" element="tns:selectClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectSCACSoapIn">
+    <wsdl:part name="parameters" element="tns:selectSCAC" />
+  </wsdl:message>
+  <wsdl:message name="selectSCACSoapOut">
+    <wsdl:part name="parameters" element="tns:selectSCACResponse" />
+  </wsdl:message>
+  <wsdl:message name="deactivateBatchSoapIn">
+    <wsdl:part name="parameters" element="tns:deactivateBatch" />
+  </wsdl:message>
+  <wsdl:message name="deactivateBatchSoapOut">
+    <wsdl:part name="parameters" element="tns:deactivateBatchResponse" />
+  </wsdl:message>
+  <wsdl:message name="isAllowBatchStartSoapIn">
+    <wsdl:part name="parameters" element="tns:isAllowBatchStart" />
+  </wsdl:message>
+  <wsdl:message name="isAllowBatchStartSoapOut">
+    <wsdl:part name="parameters" element="tns:isAllowBatchStartResponse" />
+  </wsdl:message>
+  <wsdl:message name="isAllowEditSoapIn">
+    <wsdl:part name="parameters" element="tns:isAllowEdit" />
+  </wsdl:message>
+  <wsdl:message name="isAllowEditSoapOut">
+    <wsdl:part name="parameters" element="tns:isAllowEditResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:updateStatus" />
+  </wsdl:message>
+  <wsdl:message name="updateStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:updateStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateBatchSoapIn">
+    <wsdl:part name="parameters" element="tns:updateBatch" />
+  </wsdl:message>
+  <wsdl:message name="updateBatchSoapOut">
+    <wsdl:part name="parameters" element="tns:updateBatchResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetServerDateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetServerDate" />
+  </wsdl:message>
+  <wsdl:message name="GetServerDateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetServerDateResponse" />
+  </wsdl:message>
+  <wsdl:portType name="VirtualMailRoomQABLSoap">
+    <wsdl:operation name="selectBatches">
+      <wsdl:input message="tns:selectBatchesSoapIn" />
+      <wsdl:output message="tns:selectBatchesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectClient">
+      <wsdl:input message="tns:selectClientSoapIn" />
+      <wsdl:output message="tns:selectClientSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectSCAC">
+      <wsdl:input message="tns:selectSCACSoapIn" />
+      <wsdl:output message="tns:selectSCACSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deactivateBatch">
+      <wsdl:input message="tns:deactivateBatchSoapIn" />
+      <wsdl:output message="tns:deactivateBatchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="isAllowBatchStart">
+      <wsdl:input message="tns:isAllowBatchStartSoapIn" />
+      <wsdl:output message="tns:isAllowBatchStartSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="isAllowEdit">
+      <wsdl:input message="tns:isAllowEditSoapIn" />
+      <wsdl:output message="tns:isAllowEditSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateStatus">
+      <wsdl:input message="tns:updateStatusSoapIn" />
+      <wsdl:output message="tns:updateStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateBatch">
+      <wsdl:input message="tns:updateBatchSoapIn" />
+      <wsdl:output message="tns:updateBatchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServerDate">
+      <wsdl:input message="tns:GetServerDateSoapIn" />
+      <wsdl:output message="tns:GetServerDateSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="VirtualMailRoomQABLSoap" type="tns:VirtualMailRoomQABLSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="selectBatches">
+      <soap:operation soapAction="http://tempuri.org/selectBatches" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectClient">
+      <soap:operation soapAction="http://tempuri.org/selectClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectSCAC">
+      <soap:operation soapAction="http://tempuri.org/selectSCAC" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deactivateBatch">
+      <soap:operation soapAction="http://tempuri.org/deactivateBatch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isAllowBatchStart">
+      <soap:operation soapAction="http://tempuri.org/isAllowBatchStart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isAllowEdit">
+      <soap:operation soapAction="http://tempuri.org/isAllowEdit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateStatus">
+      <soap:operation soapAction="http://tempuri.org/updateStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateBatch">
+      <soap:operation soapAction="http://tempuri.org/updateBatch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServerDate">
+      <soap:operation soapAction="http://tempuri.org/GetServerDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="VirtualMailRoomQABLSoap12" type="tns:VirtualMailRoomQABLSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="selectBatches">
+      <soap12:operation soapAction="http://tempuri.org/selectBatches" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectClient">
+      <soap12:operation soapAction="http://tempuri.org/selectClient" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectSCAC">
+      <soap12:operation soapAction="http://tempuri.org/selectSCAC" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deactivateBatch">
+      <soap12:operation soapAction="http://tempuri.org/deactivateBatch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isAllowBatchStart">
+      <soap12:operation soapAction="http://tempuri.org/isAllowBatchStart" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isAllowEdit">
+      <soap12:operation soapAction="http://tempuri.org/isAllowEdit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateStatus">
+      <soap12:operation soapAction="http://tempuri.org/updateStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateBatch">
+      <soap12:operation soapAction="http://tempuri.org/updateBatch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServerDate">
+      <soap12:operation soapAction="http://tempuri.org/GetServerDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="VirtualMailRoomQABL">
+    <wsdl:port name="VirtualMailRoomQABLSoap" binding="tns:VirtualMailRoomQABLSoap">
+      <soap:address location="http://localhost:1195/VirtualMailRoomQABL.asmx" />
+    </wsdl:port>
+    <wsdl:port name="VirtualMailRoomQABLSoap12" binding="tns:VirtualMailRoomQABLSoap12">
+      <soap12:address location="http://localhost:1195/VirtualMailRoomQABL.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

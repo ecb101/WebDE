@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3DAA3701-9BC5-403F-BAAC-5CCE8FEBF02C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FormControls</RootNamespace>
+    <AssemblyName>FormControls</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ItemGroup>
+    <Compile Include="IDUpdate.cs" />
+    <Compile Include="TraxDECheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TraxDECheckBox.Designer.cs">
+      <DependentUpon>TraxDECheckBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TraxDEComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TraxDEComboBox.Designer.cs">
+      <DependentUpon>TraxDEComboBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TraxDEDataGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TraxDEDataGridView.Designer.cs">
+      <DependentUpon>TraxDEDataGridView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TraxDEDataGridViewTextBoxCell.cs">
+    </Compile>
+    <Compile Include="TraxDEDataGridViewTextBoxCell.Designer.cs">
+      <DependentUpon>TraxDEDataGridViewTextBoxCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TraxDEDataGridViewTextBoxColumn.cs">
+    </Compile>
+    <Compile Include="TraxDEDataGridViewTextBoxColumn.Designer.cs">
+      <DependentUpon>TraxDEDataGridViewTextBoxColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TraxDEDataGridViewTextBoxEditingControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TraxDEDataGridViewTextBoxEditingControl.Designer.cs">
+      <DependentUpon>TraxDEDataGridViewTextBoxEditingControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TraxDEControls.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TraxDEControls.Designer.cs">
+      <DependentUpon>TraxDEControls.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TraxDELabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TraxDELabel.Designer.cs">
+      <DependentUpon>TraxDELabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TraxDEMaskedTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TraxDEMaskedTextBox.Designer.cs">
+      <DependentUpon>TraxDEMaskedTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TraxDETextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TraxDETextBox.Designer.cs">
+      <DependentUpon>TraxDETextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TraxDEPictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TraxDEPictureBox.designer.cs">
+      <DependentUpon>TraxDEPictureBox.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="TraxDEDataGridView.resx">
+      <DependentUpon>TraxDEDataGridView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TraxDEControls.resx">
+      <DependentUpon>TraxDEControls.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TraxDEPictureBox.resx">
+      <DependentUpon>TraxDEPictureBox.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\CommonLibrary\CommonLibrary.csproj">
+      <Project>{31EBC023-4652-4CAD-9115-7B7244B612B9}</Project>
+      <Name>CommonLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{9626D73E-B692-4E2E-8FE9-DE9A6EBAEC24}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

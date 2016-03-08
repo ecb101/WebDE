@@ -1,0 +1,223 @@
+﻿<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CEEC606C-ECC4-4CF4-8888-59F3A180D31E}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DEWebService</RootNamespace>
+    <AssemblyName>DEWebService</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Filex.CoreLib, Version=1.1.870.17051, Culture=neutral, PublicKeyToken=a05d8f63989cf1d1">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\FPS DLL\Filex.CoreLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Filex.Data, Version=1.1.1441.19778, Culture=neutral, PublicKeyToken=a05d8f63989cf1d1">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\FPS DLL\Filex.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Filex.Data.MSharpExtensions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a05d8f63989cf1d1">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\FPS DLL\Filex.Data.MSharpExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Filex.GraphDiffGenerator.DiffActions, Version=1.1.3.0, Culture=neutral, PublicKeyToken=a05d8f63989cf1d1">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\FPS DLL\Filex.GraphDiffGenerator.DiffActions.dll</HintPath>
+    </Reference>
+    <Reference Include="Filex.GraphDiffGenerator.DiffActions.MSharpExtension, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a05d8f63989cf1d1">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\FPS DLL\Filex.GraphDiffGenerator.DiffActions.MSharpExtension.dll</HintPath>
+    </Reference>
+    <Reference Include="Filex.Identity, Version=1.1.870.17051, Culture=neutral, PublicKeyToken=a05d8f63989cf1d1">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\FPS DLL\Filex.Identity.dll</HintPath>
+    </Reference>
+    <Reference Include="Filex.MSharp, Version=1.1.1457.19822, Culture=neutral, PublicKeyToken=a05d8f63989cf1d1">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\FPS DLL\Filex.MSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Filex.MSharp.Lib.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a05d8f63989cf1d1">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\FPS DLL\Filex.MSharp.Lib.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Filex.MSharp.Lib.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a05d8f63989cf1d1">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\FPS DLL\Filex.MSharp.Lib.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Filex.MSharp.Runtime, Version=1.1.1457.19822, Culture=neutral, PublicKeyToken=a05d8f63989cf1d1">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\FPS DLL\Filex.MSharp.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Filex.MSharp.Runtime.Sql, Version=1.1.1457.19822, Culture=neutral, PublicKeyToken=a05d8f63989cf1d1">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\FPS DLL\Filex.MSharp.Runtime.Sql.dll</HintPath>
+    </Reference>
+    <Reference Include="Filex.MSharp.SplitterUtils, Version=1.1.1457.19822, Culture=neutral, PublicKeyToken=a05d8f63989cf1d1">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\FPS DLL\Filex.MSharp.SplitterUtils.dll</HintPath>
+    </Reference>
+    <Reference Include="Filex.Persistence, Version=1.1.870.17051, Culture=neutral, PublicKeyToken=a05d8f63989cf1d1">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\FPS DLL\Filex.Persistence.dll</HintPath>
+    </Reference>
+    <Reference Include="Filex.Xml.XmlToEdi, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\FPS DLL\Filex.Xml.XmlToEdi.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=4.1.6.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\FPS DLL\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="Trax.FPS.BusinessObjects, Version=1.0.0.3, Culture=neutral, PublicKeyToken=a05d8f63989cf1d1">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\FPS DLL\Trax.FPS.BusinessObjects.dll</HintPath>
+    </Reference>
+    <Reference Include="Trax.FPS.BusinessObjects.Utilities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a05d8f63989cf1d1">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\FPS DLL\Trax.FPS.BusinessObjects.Utilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Trax.FPS.Setters, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a05d8f63989cf1d1">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\FPS DLL\Trax.FPS.Setters.dll</HintPath>
+    </Reference>
+    <Reference Include="Trax.FPS.v1.Types, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\FPS DLL\Trax.FPS.v1.Types.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BatchEntryBL.asmx" />
+    <Content Include="ClientSCACValidationBL.asmx" />
+    <Content Include="CreateMXXmdbBL.asmx" />
+    <Content Include="DataEntryQABL.asmx" />
+    <Content Include="QABL.asmx" />
+    <Content Include="UserLoginBL.asmx" />
+    <Content Include="VendorInfoBL.asmx" />
+    <Content Include="VirtualMailRoomBatchSolutionBL.asmx" />
+    <Content Include="Web.config" />
+    <Content Include="BaseBLogic.asmx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BatchEntryBL.asmx.cs">
+      <DependentUpon>BatchEntryBL.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ClientSCACValidationBL.asmx.cs">
+      <DependentUpon>ClientSCACValidationBL.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CreateMXXmdbBL.asmx.cs">
+      <DependentUpon>CreateMXXmdbBL.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DataEntryQABL.asmx.cs">
+      <DependentUpon>DataEntryQABL.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="BaseBLogic.asmx.cs">
+      <DependentUpon>BaseBLogic.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="QABL.asmx.cs">
+      <DependentUpon>QABL.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserLoginBL.asmx.cs">
+      <DependentUpon>UserLoginBL.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="VendorInfoBL.asmx.cs">
+      <DependentUpon>VendorInfoBL.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="VirtualMailRoomBatchSolutionBL.asmx.cs">
+      <DependentUpon>VirtualMailRoomBatchSolutionBL.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\CommonLibrary\CommonLibrary.csproj">
+      <Project>{31EBC023-4652-4CAD-9115-7B7244B612B9}</Project>
+      <Name>CommonLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{9626D73E-B692-4E2E-8FE9-DE9A6EBAEC24}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>8080</DevelopmentServerPort>
+          <DevelopmentServerVPath>/DEWebService</DevelopmentServerVPath>
+          <IISUrl>http://fxcebas0519:8080/DEWebService/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

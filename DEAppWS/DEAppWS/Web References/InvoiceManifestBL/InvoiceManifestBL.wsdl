@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="selectInvoiceManifest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ImgDocID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectInvoiceManifestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectInvoiceManifestResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="saveInvoiceManifest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="siteID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="saveInvoiceManifestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="saveInvoiceManifestResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectClient">
+        <s:complexType />
+      </s:element>
+      <s:element name="selectClientResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectClientResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAnyType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="selectLanguage">
+        <s:complexType />
+      </s:element>
+      <s:element name="selectLanguageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectLanguageResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertImagesManifested">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="from" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="to" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertImagesManifestedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="insertImagesManifestedResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="auditTrail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ImageID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="descriptionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="systemUserName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="auditTrailResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetServerDate">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetServerDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetServerDateResult" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="selectInvoiceManifestSoapIn">
+    <wsdl:part name="parameters" element="tns:selectInvoiceManifest" />
+  </wsdl:message>
+  <wsdl:message name="selectInvoiceManifestSoapOut">
+    <wsdl:part name="parameters" element="tns:selectInvoiceManifestResponse" />
+  </wsdl:message>
+  <wsdl:message name="saveInvoiceManifestSoapIn">
+    <wsdl:part name="parameters" element="tns:saveInvoiceManifest" />
+  </wsdl:message>
+  <wsdl:message name="saveInvoiceManifestSoapOut">
+    <wsdl:part name="parameters" element="tns:saveInvoiceManifestResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectClientSoapIn">
+    <wsdl:part name="parameters" element="tns:selectClient" />
+  </wsdl:message>
+  <wsdl:message name="selectClientSoapOut">
+    <wsdl:part name="parameters" element="tns:selectClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectLanguageSoapIn">
+    <wsdl:part name="parameters" element="tns:selectLanguage" />
+  </wsdl:message>
+  <wsdl:message name="selectLanguageSoapOut">
+    <wsdl:part name="parameters" element="tns:selectLanguageResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertImagesManifestedSoapIn">
+    <wsdl:part name="parameters" element="tns:insertImagesManifested" />
+  </wsdl:message>
+  <wsdl:message name="insertImagesManifestedSoapOut">
+    <wsdl:part name="parameters" element="tns:insertImagesManifestedResponse" />
+  </wsdl:message>
+  <wsdl:message name="auditTrailSoapIn">
+    <wsdl:part name="parameters" element="tns:auditTrail" />
+  </wsdl:message>
+  <wsdl:message name="auditTrailSoapOut">
+    <wsdl:part name="parameters" element="tns:auditTrailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetServerDateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetServerDate" />
+  </wsdl:message>
+  <wsdl:message name="GetServerDateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetServerDateResponse" />
+  </wsdl:message>
+  <wsdl:portType name="InvoiceManifestBLSoap">
+    <wsdl:operation name="selectInvoiceManifest">
+      <wsdl:input message="tns:selectInvoiceManifestSoapIn" />
+      <wsdl:output message="tns:selectInvoiceManifestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="saveInvoiceManifest">
+      <wsdl:input message="tns:saveInvoiceManifestSoapIn" />
+      <wsdl:output message="tns:saveInvoiceManifestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectClient">
+      <wsdl:input message="tns:selectClientSoapIn" />
+      <wsdl:output message="tns:selectClientSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectLanguage">
+      <wsdl:input message="tns:selectLanguageSoapIn" />
+      <wsdl:output message="tns:selectLanguageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertImagesManifested">
+      <wsdl:input message="tns:insertImagesManifestedSoapIn" />
+      <wsdl:output message="tns:insertImagesManifestedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="auditTrail">
+      <wsdl:input message="tns:auditTrailSoapIn" />
+      <wsdl:output message="tns:auditTrailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServerDate">
+      <wsdl:input message="tns:GetServerDateSoapIn" />
+      <wsdl:output message="tns:GetServerDateSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="InvoiceManifestBLSoap" type="tns:InvoiceManifestBLSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="selectInvoiceManifest">
+      <soap:operation soapAction="http://tempuri.org/selectInvoiceManifest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveInvoiceManifest">
+      <soap:operation soapAction="http://tempuri.org/saveInvoiceManifest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectClient">
+      <soap:operation soapAction="http://tempuri.org/selectClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectLanguage">
+      <soap:operation soapAction="http://tempuri.org/selectLanguage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertImagesManifested">
+      <soap:operation soapAction="http://tempuri.org/insertImagesManifested" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="auditTrail">
+      <soap:operation soapAction="http://tempuri.org/auditTrail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServerDate">
+      <soap:operation soapAction="http://tempuri.org/GetServerDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="InvoiceManifestBLSoap12" type="tns:InvoiceManifestBLSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="selectInvoiceManifest">
+      <soap12:operation soapAction="http://tempuri.org/selectInvoiceManifest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveInvoiceManifest">
+      <soap12:operation soapAction="http://tempuri.org/saveInvoiceManifest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectClient">
+      <soap12:operation soapAction="http://tempuri.org/selectClient" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectLanguage">
+      <soap12:operation soapAction="http://tempuri.org/selectLanguage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertImagesManifested">
+      <soap12:operation soapAction="http://tempuri.org/insertImagesManifested" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="auditTrail">
+      <soap12:operation soapAction="http://tempuri.org/auditTrail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServerDate">
+      <soap12:operation soapAction="http://tempuri.org/GetServerDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="InvoiceManifestBL">
+    <wsdl:port name="InvoiceManifestBLSoap" binding="tns:InvoiceManifestBLSoap">
+      <soap:address location="http://localhost:1195/InvoiceManifestBL.asmx" />
+    </wsdl:port>
+    <wsdl:port name="InvoiceManifestBLSoap12" binding="tns:InvoiceManifestBLSoap12">
+      <soap12:address location="http://localhost:1195/InvoiceManifestBL.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

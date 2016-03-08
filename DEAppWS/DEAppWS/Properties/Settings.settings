@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="DEAppWS.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="DEAppWS_localhost_DataEntryQABL" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://fxcebas0519:8080/DEWebService/DataEntryQABL.asmx</Value>
+    </Setting>
+    <Setting Name="DEAppWS_VirtualMailRoomBatchSolutionBL_VirtualMailRoomBatchSolutionBL" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://fxcebas0519:8080/DEWebService/VirtualMailRoomBatchSolutionBL.asmx</Value>
+    </Setting>
+    <Setting Name="DEAppWS_UserLoginBL_UserLoginBL" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://fxcebas0519:8080/DEWebService/UserLoginBL.asmx</Value>
+    </Setting>
+    <Setting Name="DEAppWS_ClientSCACValidationBL_ClientSCACValidationBL" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://fxcebas0519:8080/DEWebService/ClientSCACValidationBL.asmx</Value>
+    </Setting>
+    <Setting Name="DEAppWS_VendorInfoBL_VendorInfoBL" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:8080/DEWebService/VendorInfoBL.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

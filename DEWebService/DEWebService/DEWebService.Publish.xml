@@ -1,0 +1,48 @@
+<publishData>
+  <publishTarget publishUrl="D:\webservice\">
+    <file relUrl="bin/Filex.MSharp.dll" publishTime="10/06/2009 13:29:19" />
+    <file relUrl="bin/Trax.FPS.Setters.dll" publishTime="10/06/2009 13:45:50" />
+    <file relUrl="bin/Filex.MSharp.Lib.Common.dll" publishTime="10/06/2009 13:38:57" />
+    <file relUrl="bin/Filex.MSharp.SplitterUtils.dll" publishTime="10/06/2009 13:35:57" />
+    <file relUrl="VirtualMailRoomBatchSolutionBL.asmx" publishTime="05/20/2011 19:55:05" />
+    <file relUrl="UserLoginBL.asmx" publishTime="05/20/2011 20:02:26" />
+    <file relUrl="DeactivateBatchesBL.asmx" publishTime="05/24/2011 15:58:38" />
+    <file relUrl="bin/Filex.Data.MSharpExtensions.dll" publishTime="10/06/2009 13:39:07" />
+    <file relUrl="bin/CommonLibrary.dll" publishTime="05/31/2011 19:50:21" />
+    <file relUrl="bin/DAL.dll" publishTime="05/31/2011 19:50:21" />
+    <file relUrl="BatchEntryBL.asmx" publishTime="05/20/2011 19:39:37" />
+    <file relUrl="bin/DAL.pdb" publishTime="05/31/2011 19:50:21" />
+    <file relUrl="bin/Filex.MSharp.Excel.dll" publishTime="10/06/2009 13:35:44" />
+    <file relUrl="bin/Interop.DAO.dll" publishTime="05/31/2011 19:50:21" />
+    <file relUrl="bin/Filex.Persistence.dll" publishTime="10/06/2009 13:27:57" />
+    <file relUrl="InvoiceManifestBL.asmx" publishTime="05/24/2011 11:37:48" />
+    <file relUrl="BaseBLogic.asmx" publishTime="05/20/2011 19:43:52" />
+    <file relUrl="bin/Filex.MSharp.Runtime.dll" publishTime="10/06/2009 13:29:10" />
+    <file relUrl="QABL.asmx" publishTime="05/23/2011 13:24:04" />
+    <file relUrl="bin/Filex.MSharp.Lib.Core.dll" publishTime="10/06/2009 13:38:50" />
+    <file relUrl="FBCountCorrectionBL.asmx" publishTime="05/24/2011 18:00:08" />
+    <file relUrl="bin/Filex.Identity.dll" publishTime="10/06/2009 13:29:03" />
+    <file relUrl="TransferOwnershipBL.asmx" publishTime="05/24/2011 17:15:36" />
+    <file relUrl="bin/Filex.CoreLib.dll" publishTime="10/06/2009 13:28:05" />
+    <file relUrl="VendorInfoBL.asmx" publishTime="05/23/2011 12:11:38" />
+    <file relUrl="bin/DEWebService.pdb" publishTime="05/31/2011 19:50:23" />
+    <file relUrl="VirtualMailRoomQABL.asmx" publishTime="05/24/2011 13:24:31" />
+    <file relUrl="bin/Filex.Data.dll" publishTime="10/06/2009 13:32:34" />
+    <file relUrl="bin/Filex.MSharp.Runtime.Bootstrap.dll" publishTime="10/06/2009 13:28:58" />
+    <file relUrl="bin/Filex.GraphDiffGenerator.DiffActions.dll" publishTime="10/06/2009 13:32:46" />
+    <file relUrl="bin/Filex.MSharp.Runtime.Sql.dll" publishTime="10/06/2009 13:35:36" />
+    <file relUrl="bin/CommonLibrary.pdb" publishTime="05/31/2011 19:50:20" />
+    <file relUrl="ImageResolutionBL.asmx" publishTime="05/24/2011 17:44:10" />
+    <file relUrl="UserMasterBL.asmx" publishTime="05/31/2011 17:47:22" />
+    <file relUrl="bin/Trax.FPS.BusinessObjects.dll" publishTime="10/06/2009 13:47:00" />
+    <file relUrl="ImageCombineBL.asmx" publishTime="05/24/2011 15:14:13" />
+    <file relUrl="DeactivationDescriptionMasterBL.asmx" publishTime="05/31/2011 19:34:10" />
+    <file relUrl="CreateMXXmdbBL.asmx" publishTime="05/24/2011 17:34:55" />
+    <file relUrl="BatchReserveBL.asmx" publishTime="05/24/2011 16:22:23" />
+    <file relUrl="Web.config" publishTime="05/26/2011 19:08:22" />
+    <file relUrl="ForceStatusChangeBL.asmx" publishTime="05/24/2011 17:23:02" />
+    <file relUrl="bin/DEWebService.dll" publishTime="05/31/2011 19:50:23" />
+    <file relUrl="bin/Filex.MSharp.Excel.Bootstrap.dll" publishTime="10/06/2009 13:35:24" />
+    <file relUrl="bin/Filex.Persistence.ByteStream.dll" publishTime="10/06/2009 13:28:48" />
+  </publishTarget>
+</publishData>

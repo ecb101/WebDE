@@ -1,0 +1,487 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CAE5A20D-AE7D-44AA-B11F-A84613DC5D2C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DEAppWS</RootNamespace>
+    <AssemblyName>DEAppWS</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <ManifestCertificateThumbprint>5BCE200E76618C582CA18426D4B4A6F57A48850A</ManifestCertificateThumbprint>
+    <ManifestKeyFile>DEAppWS_TemporaryKey.pfx</ManifestKeyFile>
+    <GenerateManifests>true</GenerateManifests>
+    <SignManifests>true</SignManifests>
+    <PublishUrl>\\fxcebas0519\DEWeb\DEApplication\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>http://fxcebas0519:8080/DEApplication/</InstallUrl>
+    <ProductName>Data Entry Application WS</ProductName>
+    <PublisherName>Trax Technologies, Inc.</PublisherName>
+    <SuiteName>Data Entry Application WS</SuiteName>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>Default.htm</WebPage>
+    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationVersion>3.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="frmAddressInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddressInfo.designer.cs">
+      <DependentUpon>frmAddressInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddressInfoSC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddressInfoSC.designer.cs">
+      <DependentUpon>frmAddressInfoSC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBillToInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBillToInfo.designer.cs">
+      <DependentUpon>frmBillToInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCertify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCertify.designer.cs">
+      <DependentUpon>frmCertify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmChargeCodeLookUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChargeCodeLookUp.designer.cs">
+      <DependentUpon>frmChargeCodeLookUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmClientSCACValidation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmClientSCACValidation.designer.cs">
+      <DependentUpon>frmClientSCACValidation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCurrencyBreakDown.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCurrencyBreakDown.designer.cs">
+      <DependentUpon>frmCurrencyBreakDown.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDefaultDE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDefaultDE.designer.cs">
+      <DependentUpon>frmDefaultDE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDEQA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDEQA.designer.cs">
+      <DependentUpon>frmDEQA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDEQABase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDEQABase.designer.cs">
+      <DependentUpon>frmDEQABase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmErrorList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmErrorList.designer.cs">
+      <DependentUpon>frmErrorList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmFIS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFIS.designer.cs">
+      <DependentUpon>frmFIS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmFXI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFXI.Designer.cs">
+      <DependentUpon>frmFXI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGuideView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGuideView.designer.cs">
+      <DependentUpon>frmGuideView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMatch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMatch.Designer.cs">
+      <DependentUpon>frmMatch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMatchWithRef.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMatchWithRef.designer.cs">
+      <DependentUpon>frmMatchWithRef.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReBatchList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReBatchList.designer.cs">
+      <DependentUpon>frmReBatchList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmShipperConsignee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmShipperConsignee.designer.cs">
+      <DependentUpon>frmShipperConsignee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUserLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUserLogin.designer.cs">
+      <DependentUpon>frmUserLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVendorInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVendorInfo.Designer.cs">
+      <DependentUpon>frmVendorInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVirtualMailRoomBatchSolution.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVirtualMailRoomBatchSolution.designer.cs">
+      <DependentUpon>frmVirtualMailRoomBatchSolution.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmAddressInfo.resx">
+      <DependentUpon>frmAddressInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddressInfoSC.resx">
+      <DependentUpon>frmAddressInfoSC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBillToInfo.resx">
+      <DependentUpon>frmBillToInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCertify.resx">
+      <DependentUpon>frmCertify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChargeCodeLookUp.resx">
+      <DependentUpon>frmChargeCodeLookUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmClientSCACValidation.resx">
+      <DependentUpon>frmClientSCACValidation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCurrencyBreakDown.resx">
+      <DependentUpon>frmCurrencyBreakDown.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDefaultDE.resx">
+      <DependentUpon>frmDefaultDE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDEQA.resx">
+      <DependentUpon>frmDEQA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDEQABase.resx">
+      <DependentUpon>frmDEQABase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmErrorList.resx">
+      <DependentUpon>frmErrorList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFIS.resx">
+      <DependentUpon>frmFIS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFXI.resx">
+      <DependentUpon>frmFXI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGuideView.resx">
+      <DependentUpon>frmGuideView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMatch.resx">
+      <DependentUpon>frmMatch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMatchWithRef.resx">
+      <DependentUpon>frmMatchWithRef.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReBatchList.resx">
+      <DependentUpon>frmReBatchList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmShipperConsignee.resx">
+      <DependentUpon>frmShipperConsignee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUserLogin.resx">
+      <DependentUpon>frmUserLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVendorInfo.resx">
+      <DependentUpon>frmVendorInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVirtualMailRoomBatchSolution.resx">
+      <DependentUpon>frmVirtualMailRoomBatchSolution.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Web References\ClientSCACValidationBL\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\DataEntryQABL\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\UserLoginBL\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\VendorInfoBL\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\VirtualMailRoomBatchSolutionBL\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\CommonLibrary\CommonLibrary.csproj">
+      <Project>{31EBC023-4652-4CAD-9115-7B7244B612B9}</Project>
+      <Name>CommonLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FormControls\FormControls.csproj">
+      <Project>{3DAA3701-9BC5-403F-BAAC-5CCE8FEBF02C}</Project>
+      <Name>FormControls</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://fxcebas0519:8080/DEWebService/ClientSCACValidationBL.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ClientSCACValidationBL\</RelPath>
+      <UpdateFromURL>http://fxcebas0519:8080/DEWebService/ClientSCACValidationBL.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>DEAppWS_ClientSCACValidationBL_ClientSCACValidationBL</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://fxcebas0519:8080/DEWebService/DataEntryQABL.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\DataEntryQABL\</RelPath>
+      <UpdateFromURL>http://fxcebas0519:8080/DEWebService/DataEntryQABL.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>DEAppWS_localhost_DataEntryQABL</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://fxcebas0519:8080/DEWebService/UserLoginBL.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\UserLoginBL\</RelPath>
+      <UpdateFromURL>http://fxcebas0519:8080/DEWebService/UserLoginBL.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>DEAppWS_UserLoginBL_UserLoginBL</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://fxcebas0519:8080/DEWebService/VirtualMailRoomBatchSolutionBL.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\VirtualMailRoomBatchSolutionBL\</RelPath>
+      <UpdateFromURL>http://fxcebas0519:8080/DEWebService/VirtualMailRoomBatchSolutionBL.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>DEAppWS_VirtualMailRoomBatchSolutionBL_VirtualMailRoomBatchSolutionBL</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:8080/DEWebService/VendorInfoBL.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\VendorInfoBL\</RelPath>
+      <UpdateFromURL>http://localhost:8080/DEWebService/VendorInfoBL.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>DEAppWS_VendorInfoBL_VendorInfoBL</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\DataEntryQABL\DataEntryQABL.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\DataEntryQABL\DataEntryQABL.disco" />
+    <None Include="Web References\DataEntryQABL\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\VirtualMailRoomBatchSolutionBL\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\VirtualMailRoomBatchSolutionBL\VirtualMailRoomBatchSolutionBL.disco" />
+    <None Include="Web References\VirtualMailRoomBatchSolutionBL\VirtualMailRoomBatchSolutionBL.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\UserLoginBL\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\UserLoginBL\UserLoginBL.disco" />
+    <None Include="Web References\UserLoginBL\UserLoginBL.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\ClientSCACValidationBL\ClientSCACValidationBL.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\ClientSCACValidationBL\ClientSCACValidationBL.disco" />
+    <None Include="Web References\ClientSCACValidationBL\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DEAppWS_TemporaryKey.pfx" />
+    <None Include="Web References\VendorInfoBL\VendorInfoBL.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\VendorInfoBL\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\VendorInfoBL\VendorInfoBL.disco" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

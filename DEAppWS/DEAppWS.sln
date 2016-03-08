@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual C# Express 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DEAppWS", "DEAppWS\DEAppWS.csproj", "{CAE5A20D-AE7D-44AA-B11F-A84613DC5D2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormControls", "FormControls\FormControls.csproj", "{3DAA3701-9BC5-403F-BAAC-5CCE8FEBF02C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonLibrary", "..\CommonLibrary\CommonLibrary.csproj", "{31EBC023-4652-4CAD-9115-7B7244B612B9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CAE5A20D-AE7D-44AA-B11F-A84613DC5D2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAE5A20D-AE7D-44AA-B11F-A84613DC5D2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAE5A20D-AE7D-44AA-B11F-A84613DC5D2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAE5A20D-AE7D-44AA-B11F-A84613DC5D2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DAA3701-9BC5-403F-BAAC-5CCE8FEBF02C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DAA3701-9BC5-403F-BAAC-5CCE8FEBF02C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DAA3701-9BC5-403F-BAAC-5CCE8FEBF02C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DAA3701-9BC5-403F-BAAC-5CCE8FEBF02C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31EBC023-4652-4CAD-9115-7B7244B612B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31EBC023-4652-4CAD-9115-7B7244B612B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31EBC023-4652-4CAD-9115-7B7244B612B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31EBC023-4652-4CAD-9115-7B7244B612B9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

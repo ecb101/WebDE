@@ -1,0 +1,608 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="selectClient">
+        <s:complexType />
+      </s:element>
+      <s:element name="selectClientResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectClientResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectSCAC">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OwnerKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectSCACResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectSCACResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateDEClientSCAC">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="batCtrlNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Owner_Key" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Vend_SCAC" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserInitials" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateDEClientSCACResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="updateDEClientSCACResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="overwriteClientSCAC">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="batCtrlNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Owner_Key" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Vend_SCAC" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="overwriteClientSCACResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="overwriteClientSCACResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isUpdateDEClientSCACNeeded">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="batCtrlNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isUpdateDEClientSCACNeededResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="isUpdateDEClientSCACNeededResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isSplitBatches">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="batCtrlNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isSplitBatchesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="isSplitBatchesResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MXXDatabase" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectDetailResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="createIfObject">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="batCtrlNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Owner_Key" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Vend_SCAC" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="createIfObjectResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Insert">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dt">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Update">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dt">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Delete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="primaryKeys" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="parametersValues" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DeleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectAll">
+        <s:complexType />
+      </s:element>
+      <s:element name="SelectAllResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SelectAllResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServerDate">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetServerDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetServerDateResult" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="selectClientSoapIn">
+    <wsdl:part name="parameters" element="tns:selectClient" />
+  </wsdl:message>
+  <wsdl:message name="selectClientSoapOut">
+    <wsdl:part name="parameters" element="tns:selectClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectSCACSoapIn">
+    <wsdl:part name="parameters" element="tns:selectSCAC" />
+  </wsdl:message>
+  <wsdl:message name="selectSCACSoapOut">
+    <wsdl:part name="parameters" element="tns:selectSCACResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateDEClientSCACSoapIn">
+    <wsdl:part name="parameters" element="tns:updateDEClientSCAC" />
+  </wsdl:message>
+  <wsdl:message name="updateDEClientSCACSoapOut">
+    <wsdl:part name="parameters" element="tns:updateDEClientSCACResponse" />
+  </wsdl:message>
+  <wsdl:message name="overwriteClientSCACSoapIn">
+    <wsdl:part name="parameters" element="tns:overwriteClientSCAC" />
+  </wsdl:message>
+  <wsdl:message name="overwriteClientSCACSoapOut">
+    <wsdl:part name="parameters" element="tns:overwriteClientSCACResponse" />
+  </wsdl:message>
+  <wsdl:message name="isUpdateDEClientSCACNeededSoapIn">
+    <wsdl:part name="parameters" element="tns:isUpdateDEClientSCACNeeded" />
+  </wsdl:message>
+  <wsdl:message name="isUpdateDEClientSCACNeededSoapOut">
+    <wsdl:part name="parameters" element="tns:isUpdateDEClientSCACNeededResponse" />
+  </wsdl:message>
+  <wsdl:message name="isSplitBatchesSoapIn">
+    <wsdl:part name="parameters" element="tns:isSplitBatches" />
+  </wsdl:message>
+  <wsdl:message name="isSplitBatchesSoapOut">
+    <wsdl:part name="parameters" element="tns:isSplitBatchesResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:selectDetail" />
+  </wsdl:message>
+  <wsdl:message name="selectDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:selectDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="createIfObjectSoapIn">
+    <wsdl:part name="parameters" element="tns:createIfObject" />
+  </wsdl:message>
+  <wsdl:message name="createIfObjectSoapOut">
+    <wsdl:part name="parameters" element="tns:createIfObjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertSoapIn">
+    <wsdl:part name="parameters" element="tns:Insert" />
+  </wsdl:message>
+  <wsdl:message name="InsertSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:Update" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSoapIn">
+    <wsdl:part name="parameters" element="tns:Delete" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectAllSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectAll" />
+  </wsdl:message>
+  <wsdl:message name="SelectAllSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetServerDateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetServerDate" />
+  </wsdl:message>
+  <wsdl:message name="GetServerDateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetServerDateResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ClientSCACValidationBLSoap">
+    <wsdl:operation name="selectClient">
+      <wsdl:input message="tns:selectClientSoapIn" />
+      <wsdl:output message="tns:selectClientSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectSCAC">
+      <wsdl:input message="tns:selectSCACSoapIn" />
+      <wsdl:output message="tns:selectSCACSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateDEClientSCAC">
+      <wsdl:input message="tns:updateDEClientSCACSoapIn" />
+      <wsdl:output message="tns:updateDEClientSCACSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="overwriteClientSCAC">
+      <wsdl:input message="tns:overwriteClientSCACSoapIn" />
+      <wsdl:output message="tns:overwriteClientSCACSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="isUpdateDEClientSCACNeeded">
+      <wsdl:input message="tns:isUpdateDEClientSCACNeededSoapIn" />
+      <wsdl:output message="tns:isUpdateDEClientSCACNeededSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="isSplitBatches">
+      <wsdl:input message="tns:isSplitBatchesSoapIn" />
+      <wsdl:output message="tns:isSplitBatchesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectDetail">
+      <wsdl:input message="tns:selectDetailSoapIn" />
+      <wsdl:output message="tns:selectDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="createIfObject">
+      <wsdl:input message="tns:createIfObjectSoapIn" />
+      <wsdl:output message="tns:createIfObjectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Insert">
+      <wsdl:input message="tns:InsertSoapIn" />
+      <wsdl:output message="tns:InsertSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <wsdl:input message="tns:UpdateSoapIn" />
+      <wsdl:output message="tns:UpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <wsdl:input message="tns:DeleteSoapIn" />
+      <wsdl:output message="tns:DeleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectAll">
+      <wsdl:input message="tns:SelectAllSoapIn" />
+      <wsdl:output message="tns:SelectAllSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServerDate">
+      <wsdl:input message="tns:GetServerDateSoapIn" />
+      <wsdl:output message="tns:GetServerDateSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ClientSCACValidationBLSoap" type="tns:ClientSCACValidationBLSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="selectClient">
+      <soap:operation soapAction="http://tempuri.org/selectClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectSCAC">
+      <soap:operation soapAction="http://tempuri.org/selectSCAC" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateDEClientSCAC">
+      <soap:operation soapAction="http://tempuri.org/updateDEClientSCAC" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="overwriteClientSCAC">
+      <soap:operation soapAction="http://tempuri.org/overwriteClientSCAC" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isUpdateDEClientSCACNeeded">
+      <soap:operation soapAction="http://tempuri.org/isUpdateDEClientSCACNeeded" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isSplitBatches">
+      <soap:operation soapAction="http://tempuri.org/isSplitBatches" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectDetail">
+      <soap:operation soapAction="http://tempuri.org/selectDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createIfObject">
+      <soap:operation soapAction="http://tempuri.org/createIfObject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insert">
+      <soap:operation soapAction="http://tempuri.org/Insert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap:operation soapAction="http://tempuri.org/Update" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <soap:operation soapAction="http://tempuri.org/Delete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectAll">
+      <soap:operation soapAction="http://tempuri.org/SelectAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServerDate">
+      <soap:operation soapAction="http://tempuri.org/GetServerDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ClientSCACValidationBLSoap12" type="tns:ClientSCACValidationBLSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="selectClient">
+      <soap12:operation soapAction="http://tempuri.org/selectClient" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectSCAC">
+      <soap12:operation soapAction="http://tempuri.org/selectSCAC" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateDEClientSCAC">
+      <soap12:operation soapAction="http://tempuri.org/updateDEClientSCAC" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="overwriteClientSCAC">
+      <soap12:operation soapAction="http://tempuri.org/overwriteClientSCAC" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isUpdateDEClientSCACNeeded">
+      <soap12:operation soapAction="http://tempuri.org/isUpdateDEClientSCACNeeded" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isSplitBatches">
+      <soap12:operation soapAction="http://tempuri.org/isSplitBatches" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectDetail">
+      <soap12:operation soapAction="http://tempuri.org/selectDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createIfObject">
+      <soap12:operation soapAction="http://tempuri.org/createIfObject" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insert">
+      <soap12:operation soapAction="http://tempuri.org/Insert" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap12:operation soapAction="http://tempuri.org/Update" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <soap12:operation soapAction="http://tempuri.org/Delete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectAll">
+      <soap12:operation soapAction="http://tempuri.org/SelectAll" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServerDate">
+      <soap12:operation soapAction="http://tempuri.org/GetServerDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ClientSCACValidationBL">
+    <wsdl:port name="ClientSCACValidationBLSoap" binding="tns:ClientSCACValidationBLSoap">
+      <soap:address location="http://fxcebas0519:8080/DEWebService/ClientSCACValidationBL.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ClientSCACValidationBLSoap12" binding="tns:ClientSCACValidationBLSoap12">
+      <soap12:address location="http://fxcebas0519:8080/DEWebService/ClientSCACValidationBL.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

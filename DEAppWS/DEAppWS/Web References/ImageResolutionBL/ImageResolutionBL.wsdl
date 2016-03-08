@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="selectResolutionDescription">
+        <s:complexType />
+      </s:element>
+      <s:element name="selectResolutionDescriptionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectResolutionDescriptionResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectImages">
+        <s:complexType />
+      </s:element>
+      <s:element name="selectImagesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectImagesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="implementImageResolutionReceived">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dt">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="systemUserName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="implementImageResolutionReceivedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="implementImageResolutionReceivedResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="implementImageResolutionManifestingBatching">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dt">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="newFileName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="isManifest" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="isCombinedImage" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="systemUserName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="implementImageResolutionManifestingBatchingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="implementImageResolutionManifestingBatchingResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServerDate">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetServerDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetServerDateResult" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="selectResolutionDescriptionSoapIn">
+    <wsdl:part name="parameters" element="tns:selectResolutionDescription" />
+  </wsdl:message>
+  <wsdl:message name="selectResolutionDescriptionSoapOut">
+    <wsdl:part name="parameters" element="tns:selectResolutionDescriptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectImagesSoapIn">
+    <wsdl:part name="parameters" element="tns:selectImages" />
+  </wsdl:message>
+  <wsdl:message name="selectImagesSoapOut">
+    <wsdl:part name="parameters" element="tns:selectImagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="implementImageResolutionReceivedSoapIn">
+    <wsdl:part name="parameters" element="tns:implementImageResolutionReceived" />
+  </wsdl:message>
+  <wsdl:message name="implementImageResolutionReceivedSoapOut">
+    <wsdl:part name="parameters" element="tns:implementImageResolutionReceivedResponse" />
+  </wsdl:message>
+  <wsdl:message name="implementImageResolutionManifestingBatchingSoapIn">
+    <wsdl:part name="parameters" element="tns:implementImageResolutionManifestingBatching" />
+  </wsdl:message>
+  <wsdl:message name="implementImageResolutionManifestingBatchingSoapOut">
+    <wsdl:part name="parameters" element="tns:implementImageResolutionManifestingBatchingResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetServerDateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetServerDate" />
+  </wsdl:message>
+  <wsdl:message name="GetServerDateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetServerDateResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ImageResolutionBLSoap">
+    <wsdl:operation name="selectResolutionDescription">
+      <wsdl:input message="tns:selectResolutionDescriptionSoapIn" />
+      <wsdl:output message="tns:selectResolutionDescriptionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectImages">
+      <wsdl:input message="tns:selectImagesSoapIn" />
+      <wsdl:output message="tns:selectImagesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="implementImageResolutionReceived">
+      <wsdl:input message="tns:implementImageResolutionReceivedSoapIn" />
+      <wsdl:output message="tns:implementImageResolutionReceivedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="implementImageResolutionManifestingBatching">
+      <wsdl:input message="tns:implementImageResolutionManifestingBatchingSoapIn" />
+      <wsdl:output message="tns:implementImageResolutionManifestingBatchingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServerDate">
+      <wsdl:input message="tns:GetServerDateSoapIn" />
+      <wsdl:output message="tns:GetServerDateSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ImageResolutionBLSoap" type="tns:ImageResolutionBLSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="selectResolutionDescription">
+      <soap:operation soapAction="http://tempuri.org/selectResolutionDescription" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectImages">
+      <soap:operation soapAction="http://tempuri.org/selectImages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="implementImageResolutionReceived">
+      <soap:operation soapAction="http://tempuri.org/implementImageResolutionReceived" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="implementImageResolutionManifestingBatching">
+      <soap:operation soapAction="http://tempuri.org/implementImageResolutionManifestingBatching" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServerDate">
+      <soap:operation soapAction="http://tempuri.org/GetServerDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ImageResolutionBLSoap12" type="tns:ImageResolutionBLSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="selectResolutionDescription">
+      <soap12:operation soapAction="http://tempuri.org/selectResolutionDescription" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectImages">
+      <soap12:operation soapAction="http://tempuri.org/selectImages" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="implementImageResolutionReceived">
+      <soap12:operation soapAction="http://tempuri.org/implementImageResolutionReceived" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="implementImageResolutionManifestingBatching">
+      <soap12:operation soapAction="http://tempuri.org/implementImageResolutionManifestingBatching" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServerDate">
+      <soap12:operation soapAction="http://tempuri.org/GetServerDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ImageResolutionBL">
+    <wsdl:port name="ImageResolutionBLSoap" binding="tns:ImageResolutionBLSoap">
+      <soap:address location="http://localhost:1195/ImageResolutionBL.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ImageResolutionBLSoap12" binding="tns:ImageResolutionBLSoap12">
+      <soap12:address location="http://localhost:1195/ImageResolutionBL.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
